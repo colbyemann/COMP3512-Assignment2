@@ -481,8 +481,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (r.id == code) {
                         let lat = r.latitude;
                         let long = r.longitude;
-                        document.querySelector("#map").innerHTML = `<img width="100%" height="300px" src="https://maps.googleapis.com/maps/api/staticmap?center=${d.name}&zoom=6&scale=1&size=500x300&markers=color:blue|${lat},${long}&maptype=satellite&format=png&visual_refresh=true&key=AIzaSyDqyTT1dHib7v_0yGM8qaejN_ighZQ-UiY">`;
-                        document.querySelector("#map2").innerHTML = `<img width="100%" height="300px" src="https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=12&scale=1&size=500x300&maptype=roadmap&format=png&visual_refresh=true&key=AIzaSyDqyTT1dHib7v_0yGM8qaejN_ighZQ-UiY">`;
+                        document.querySelector("#map").innerHTML = `<img width="100%" height="300px" src="https://maps.googleapis.com/maps/api/staticmap?center=${d.name}&zoom=6&scale=1&size=500x300&markers=color:blue|${lat},${long}&maptype=satellite&format=png&visual_refresh=true">`;
+                        document.querySelector("#map2").innerHTML = `<img width="100%" height="300px" src="https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=12&scale=1&size=500x300&maptype=roadmap&format=png&visual_refresh=true">`;
                         document.querySelector("#map2").style.display = "block";
 
                     }
