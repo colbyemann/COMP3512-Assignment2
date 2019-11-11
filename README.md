@@ -1,6 +1,7 @@
-#Assignment 2
+# Assignment 2
 
-Colby Emann
-Jakub
+## Contributors
+1.	Colby
+2.	Jakub
 
 
