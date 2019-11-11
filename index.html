@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>  
+    <meta name="viewport" content="width=device-width">
+    <title>COMP 3512 Assign1</title>   
+    <subtitle>COMP 3512 Assign1 - Colby Emann</subtitle>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800" rel="stylesheet">    
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+<div class="box header"><section><h1>✈ ✈  Travel Helper  ✈ ✈</h1></section></div>
+<main class="container">
+
+
+  <div class="box info">
+      <h3>Information</h3>
+      <h4 id="titleInfo">Select Country for Information</h4>
+      <section id="infoSec">
+          
+      </section>  
+  </div>
+  <div class="box countryfilter"> 
+      <section>
+        <h3>Country Filters</h3>
+        <h4>Filter By Search</h4>    
+        <input type="text" id="text" value=""> </br>
+        <h4>Filter by Continent</h4>
+        <ul id="countryFilter">
+        <li><input type="radio" name="cont" value="AF"> Africa</input></li>
+        <li><input type="radio" name="cont" value="AS"> Asia</input></li>
+        <li><input type="radio" name="cont" value="EU"> Europe</input></li>
+        <li><input type="radio" name="cont" value="NA"> North America</input></li>
+        <li><input type="radio" name="cont" value="OC"> Oceania</input></li>
+        <li><input type="radio" name="cont" value="SA"> South America</input></li>
+        <li><input type="radio" name="cont" value="AN"> Antartica</input></li>
+        <li><h4>Filter by Images</h4></li>
+        <li><input type="radio" name="cont" value="IM"> Images</input></li>
+        </ul>  
+        <h4>Clear All Filters</h4>  
+        <input id="button" type="button" value="Reset">
+      </section>  	
+  </div>
+  <div class="box countrylist"> 
+      <h3>Country List</h3>
+        <section>
+          <ul id="countryList"></ul>        
+        </section>  	
+    </div>
+  <div class="box maps">
+    <section>
+        <h3>Map</h3>  
+        <div id="map"></div>
+        <div id="map2"><img width="500" src="https://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=13&scale=1&size=500x300&maptype=roadmap&format=png&visual_refresh=true&key=AIzaSyDqyTT1dHib7v_0yGM8qaejN_ighZQ-UiY"></div>
+        
+    </section>  
+  </div>
+  <div class="box travelphotos">
+        <h3>Travel Photos</h3> 
+    <picture id="photosList"> </picture></div>
+
+    <div class="box cf">
+        <h3>City Filter</h3>     
+                <section>
+                    <h4>Filter by Search</h4>    
+                    <input type="text" id="text2" value=""> </br>
+                    <h4>Filter by Images</h4>
+                    <ul id="cityFilter" class="IM">
+                    <li><input type="radio" id="cityf" name="city" > Images</input></li>
+                    </ul>
+                    <h4>Clear All Filters</h4>  
+                    <input id="button2" type="button" value="Reset">
+                </section>
+    </div>
+    
+    <div class="box city">
+        <h3>City List</h3>
+            <section>
+            <ul id="cityList">Select Country</ul> 
+            </section>
+    </div>
+
+   
+
+    
+</main>
+
+<div class="box pictureFrame">
+  <div id="picBox">
+  <div id="bigImage">
+    <div id="texts">
+        <section>
+
+          </section>
+          <br>
+          <div id="colors2">
+              <section></section>
+              </div>
+    </div>
+    
+
+  </div>
+  
+  </div>
+
+  <div id="box2">
+  <div id="pictureInfo">
+    <h2 id="picTitle"></h2>
+    <p id="p1"></p>
+    <p id="p2"></p>
+  </div>
+
+  <div id ="bigButons">
+      <input id="speak" type="button" value="Speak">
+    <input id="close" type="button" value="Close">
+  </div>
+  
+  <div id="tabBox">
+  <input id="picDesc" type="button" value="Description">
+  <input id="picDetails" type="button" value="Details">
+  <input id="picMap" type="button" value="Map">
+      <div id="descBox">
+          <p></p>
+
+      </div>
+      <div id="detailBox">
+          <div id="detailBoxInside">
+          <section>
+
+          </section>
+          </div>
+          <br>
+          <h4>Colors:</h4>
+          <div id="colors">
+            <section> </section>
+          </div>
+      </div>
+      <div id="mapBox">
+
+      </div>
+    </div>
+
+  </div>
+</div> 
+
+    
+<script src="js/assign1.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqyTT1dHib7v_0yGM8qaejN_ighZQ-UiY&callback=initMap"
+    async defer></script>
+</body>
+</html>
