@@ -1,14 +1,4 @@
-body {
-    margin: 40px;
-    background-color: #6B8084;
-    font-family: Open Sans, sans-serif;
-    font-size: 0.8rem;
-    color: white;
-    
-}
-
 h1,h2,h3,h4,p,section{color: #373A43}
-
 
 .box {
   background-color: #DCE0E3;
@@ -17,7 +7,7 @@ h1,h2,h3,h4,p,section{color: #373A43}
   padding: 20px;
   font-size: 150%;
 }
- main{padding-top: 100px;}
+ main{padding-top: 125px;}
 
 @media screen and (min-width: 800px) {
   .container {
@@ -26,8 +16,6 @@ h1,h2,h3,h4,p,section{color: #373A43}
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     
   }
- 
-  
 }
 
 @media screen and (max-width: 800px) {
@@ -41,19 +29,6 @@ h1,h2,h3,h4,p,section{color: #373A43}
   
 
 }
-
-
-.pictureFrame img{max-width: 100%;
-  max-height: 100%;}
-
-
-
-#bigButons{
-  
-  margin-bottom: 30px;
-  
-}
-
 
 
 
