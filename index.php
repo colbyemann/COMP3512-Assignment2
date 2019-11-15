@@ -7,6 +7,7 @@
 <?php buildHead(); ?>
 <title>COMP 3512 Assign2</title>  
 <link rel="stylesheet" href="css/homelayout.css">  
+
 </head>
 <body>
 <?php buildMenu(); ?>

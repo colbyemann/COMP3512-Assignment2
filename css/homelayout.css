@@ -12,17 +12,6 @@
 
 /*desktop layout*/
 @media screen and (min-width: 800px) {
-    .container{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-        }
-        
-        .heroimage { grid-area: 1 / 1 / 2 / 2; }
-        .loginbuttons { grid-area: 2 / 1 / 3 / 2; }
-        .searchbar { grid-area: 3 / 1 / 4 / 2; }
 
         main{padding-top: 150px;}
 
