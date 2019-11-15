@@ -21,11 +21,10 @@ function buildMenu()
     <ul class=menu>
       <li><a href=index.php>Home</a></li>
       <li><a href=about.php>About</a></li>
-      <li><a href=browse-search.php>Browse/Search</a></li>
+      <li><a href=browse-search.php>Search</a></li>
       <li><a href=countries.php>Countries</a></li>
       <li><a href=cities.php>Cities</a></li>
       <li><a href=upload.php>Upload</a></li>
-      <li><a href=profile.php>Profile</a></li>
       <li><a href=favorites.php>Favs</a></li>
       <li><a href=upload.php>Login/Logout</a></li>
       <li><a href=signup.php>Sign up</a></li>
