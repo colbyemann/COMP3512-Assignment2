@@ -6,5 +6,6 @@
 </head>
 <body>
 <?php buildMenu(); ?>
+
 </body>
 </html>
