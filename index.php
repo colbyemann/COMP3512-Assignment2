@@ -3,18 +3,15 @@
     include("includes/home.inc.php");
 ?>
 <!DOCTYPE html>
-<html>
-<?php buildHead(); ?>
-<title>COMP 3512 Assign2</title>  
-<link rel="stylesheet" href="css/homelayout.css">  
-
-</head>
-<body>
-<?php buildMenu(); ?>
-
-<main class="container">
-<?php buildHomePage(); ?>
-</main>
-
-</body>
+<html lang="en">
+        <?php buildHead(); ?>
+        <title>COMP 3512 Assign2</title>
+        <link rel="stylesheet" type="text/css" href="css/homelayout.css">
+    </head>
+    <body>
+        <?php buildMenu(); ?>
+        <main class="container">
+            <?php buildHomePage(); ?>
+        </main>
+    </body>
 </html>

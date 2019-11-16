@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
         <?php buildHead(); ?>
-        <title>Sign Up</title>
+        <title>Favourites</title>
     </head>
     <body>
         <?php buildMenu(); ?>
