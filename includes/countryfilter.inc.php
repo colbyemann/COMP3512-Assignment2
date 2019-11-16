@@ -16,7 +16,7 @@ function buildCountryFilter() {
 					<li><input type='radio' name='cont' value='SA'> South America</li>
 					<li><input type='radio' name='cont' value='AN'> Antartica</li>
 					<li><h4>Filter by Images</h4></li>
-					<li><input type='radio' name='cont' value='IM'> Images</input></li>
+					<li><input type='radio' name='cont' value='IM'> Images</li>
 				</ul>
 			<h4>Clear All Filters</h4>
 			<input id='button' type='button' value='Reset'>

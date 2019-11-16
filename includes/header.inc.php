@@ -5,7 +5,7 @@ function buildHead()
 	echo "<head>
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta name='author' content='Team ?????'>
+		<meta name='author' content='Colby, Jakub, & Byron'>
 		<meta name='description' content='COMP 3512 Assignment #2: Multi-Page App'>
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800' rel='stylesheet'>    
@@ -21,7 +21,7 @@ function buildMenu()
 		<a href='#' class='logo'>Assignment 2</a>
 		<input class='menu-btn' type='checkbox' id='menu-btn'/>
 		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>
-		<ul class=menu>
+		<ul class='menu'>
 			<li><a href='index.php'>Home</a></li>
 			<li><a href='about.php'>About</a></li>
 			<li><a href='browse-search.php'>Search</a></li>
