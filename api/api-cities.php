@@ -11,7 +11,9 @@ function getCitiesSQL() {
     $sql = getCitiesSQL();
     try {
       $result = runQuery($connection, $sql, null);
-      return $result;
+      
+      // Covert to JSON
+      $result;
    }
    catch (PDOException $e) {
       die( $e->getMessage() );
@@ -25,5 +27,6 @@ function getCitiesSQL() {
     
    
     $result = runQuery($connection, $sql, null);
+   // Covert to JSON
    
 }

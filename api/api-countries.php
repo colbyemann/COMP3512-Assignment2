@@ -11,7 +11,9 @@ function getCountriesSQL() {
     $sql = getCountriesSQL();
     try {
       $result = runQuery($connection, $sql, null);
-      return $result;
+      
+      // Covert to JSON
+      $result;
    }
    catch (PDOException $e) {
       die( $e->getMessage() );
@@ -23,9 +25,8 @@ function getCountriesSQL() {
     $sql = getCountriesSQL();
     $sql = $sql . ' WHERE iso=' . $iso;
     
-   
     $result = runQuery($connection, $sql, null);
-   
+   // Covert to JSON
 }
 
 
