@@ -1,5 +1,6 @@
 <?php
 
+
 function buildHead()
 {
 	echo "<head>
@@ -10,7 +11,11 @@ function buildHead()
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800' rel='stylesheet'>    
 		<link rel='stylesheet' type='text/css' href='css/styles.css'>
-		<link rel='icon' type='image/x-icon' href='images/airplane.ico'>";
+		<link rel='icon' type='image/x-icon' href='images/airplane.ico'>
+		
+		";
+
+		
 };
 
 function buildMenu()
@@ -32,6 +37,7 @@ function buildMenu()
 			<li><a href='login.php'>Login/Logout</a></li>
 			<li><a href='signup.php'>Sign up</a></li>
 		</ul>
+		
 	</header>";
 };
 

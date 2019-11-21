@@ -1,6 +1,7 @@
 <?php 
     include("includes/header.inc.php");
     include("includes/home.inc.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/homelayout.css">
     </head>
     <body>
+        
         <?php buildMenu(); ?>
         <main class="container">
             <?php buildHomePage(); ?>
