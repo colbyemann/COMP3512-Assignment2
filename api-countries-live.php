@@ -1,10 +1,9 @@
 <?php
-require_once 'includes\configlive.inc.php';
+require_once 'includes\configlive.ini.php';
 require_once 'includes\db-functions.inc.php'; 
   
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
-
 
 
 if(isset($_GET['ISO']))

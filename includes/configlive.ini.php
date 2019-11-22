@@ -1,9 +1,9 @@
 <?php
-$url = getenv('mysql://tkvd4h5t0qak1d2p:ik8znm2000si7662@am1shyeyqbxzy8gc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/pv6ckb3kah9ykgpa');
-$dbparts = parse_url($url);
+define('DBHOST', 'am1shyeyqbxzy8gc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com');
+define('DBNAME', 'pv6ckb3kah9ykgpa');
+define('DBUSER', 'tkvd4h5t0qak1d2p');
+define('DBPASS', 'ik8znm2000si7662');
+define('DBCONNSTRING',"mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=utf8mb4;");
 
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/');
+
 ?>
