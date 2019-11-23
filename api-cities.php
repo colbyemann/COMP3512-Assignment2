@@ -1,7 +1,6 @@
 <?php
-require_once 'includes\config.inc.php';
-require_once 'includes\db-functions.inc.php'; 
-
+require_once('includes/config.inc.php');
+require_once('includes/db-functions.inc.php');
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
@@ -14,7 +13,6 @@ else{
    $result = getAllCities($connection);
    echo $result;
    };
-
 
 function getCitiesSQL() {
     $sql = "SELECT CityCode, AsciiName, CountryCodeISO, Latitude, Longitude, Population, Elevation, TimeZone FROM cities";

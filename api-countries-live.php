@@ -1,10 +1,8 @@
 <?php
-require_once 'includes\configlive.inc.php';
-require_once 'includes\db-functions.inc.php'; 
-  
+require_once('includes/configlive.inc.php');
+require_once('includes/db-functions.inc.php');
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
-
 
 if(isset($_GET['ISO']))
     {
@@ -15,9 +13,6 @@ else{
    $result = getAllCountries($connection);
    echo $result;
    };
-
-
-
 
 function getCountriesSQL() {
     //change this to countires
