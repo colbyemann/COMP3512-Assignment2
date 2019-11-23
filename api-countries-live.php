@@ -1,5 +1,5 @@
 <?php
-require_once 'includes\configlive.ini.php';
+require_once 'includes\configlive.inc.php';
 require_once 'includes\db-functions.inc.php'; 
   
 
