@@ -1,6 +1,5 @@
 <?php
 
-
 function buildHead()
 {
 	echo "<head>
@@ -14,8 +13,6 @@ function buildHead()
 		<link rel='icon' type='image/x-icon' href='images/airplane.ico'>
 		
 		";
-
-		
 };
 
 function buildMenu()
@@ -34,10 +31,9 @@ function buildMenu()
 			<li><a href='single-city.php'>Cities</a></li>
 			<li><a href='upload.php'>Upload</a></li>
 			<li><a href='favourites.php'>Favs</a></li>
-			<li><a href='login.php'>Login/Logout</a></li>
-			<li><a href='signup.php'>Sign up</a></li>
+			<li onclick='openLoginForm()'><a href='#'>Login/Logout</a></li>
+			<li onclick='openSignupForm()'><a href='#'>Sign up</a></li>
 		</ul>
-		
 	</header>";
 };
 
