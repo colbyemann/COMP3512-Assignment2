@@ -17,7 +17,7 @@ function buildHead()
 		";
 };
 
-function buildMenu_Out()
+function buildMenu()
 {
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
@@ -32,28 +32,20 @@ function buildMenu_Out()
 			<li><a href='single-country.php'>Countries</a></li>
 			<li><a href='single-city.php'>Cities</a></li>
 			<li><a href='upload.php'>Upload</a></li>
-			<li><a href='favourites.php'>Favs</a></li>
+		";
+};
+
+function buildLogoutMenu()
+{
+	echo "	<li><a href='favourites.php'>Favs</a></li>
 			<li><a href='logout.php'>Logout</a></li>
 		</ul>
 	</header>";
 };
 
-function buildMenu_In()
+function buildLoginMenu()
 {
-	echo "<header class=header>
-		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
-		<img class=logo src='images/airplane.png' alt='Airplane' style='width:40px;height:40px;'>
-		<a href='#' class='logo'>Assignment 2</a>
-		<input class='menu-btn' type='checkbox' id='menu-btn'/>
-		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>
-		<ul class='menu'>
-			<li><a href='profile.php'>Home</a></li>
-			<li><a href='about.php'>About</a></li>
-			<li><a href='browse-search.php'>Search</a></li>
-			<li><a href='single-country.php'>Countries</a></li>
-			<li><a href='single-city.php'>Cities</a></li>
-			<li><a href='upload.php'>Upload</a></li>
-			<li><a href='favourites.php'>Favs</a></li>
+	echo "	<li><a href='favourites.php'>Favs</a></li>
 			<li onclick='openLoginForm()'><a href=#>Login</a></li>
 			<li onclick='openSignupForm()'><a href=#>Signup</a></li>
 		</ul>

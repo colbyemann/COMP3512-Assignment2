@@ -16,10 +16,12 @@
         <?php
             //session_start();
             if(isset($_SESSION['user_id'])) {
-                buildMenu_Out();
+                buildMenu();
+                buildLogoutMenu();
             }
             else {
-                buildMenu_In();
+                buildMenu();
+                buildLoginMenu();
             }
         ?>
         <main class="container">

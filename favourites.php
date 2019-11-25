@@ -9,6 +9,9 @@
         <title>Favourites</title>
     </head>
     <body>
-        <?php buildMenu_Out(); ?>
+        <?php 
+            buildMenu();
+            buildLogoutMenu();
+        ?>
     </body>
 </html>

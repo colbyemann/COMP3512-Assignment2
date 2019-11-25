@@ -12,7 +12,10 @@ include("includes/home.inc.php");
         <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
-        <?php buildMenu_In(); ?>
+        <?php 
+            buildMenu();
+            buildLoginMenu();
+        ?>
         <main class="container">
             <?php 
                 buildHomePage();

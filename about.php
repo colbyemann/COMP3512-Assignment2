@@ -13,10 +13,11 @@
     <body>
         <?php
             if(isset($_SESSION['user_id'])) {
-                buildMenu_Out();
+                buildLogoutMenu();
             }
             else {
-                buildMenu_In();
+                buildMenu();
+                buildLoginMenu();
             }
         ?>
         <main class="container">
