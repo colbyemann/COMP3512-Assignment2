@@ -1,9 +1,7 @@
 <?php 
-    require_once("includes/config.inc.php");
-    require_once("includes/db-functions.inc.php");
-
-    include("includes/validate.inc.php");
     include("includes/header.inc.php");
+    include("includes/session-allow.inc.php");
+    include("includes/validate.inc.php");
     include("includes/countryfilter.inc.php");
 ?>
 
@@ -16,7 +14,7 @@
     </head>
     <body>
         <?php
-            if(!isset($_SESSION['user_id'])) {
+            if(isset($_SESSION['user_id'])) {
                 buildMenu_Out();
             }
             else {

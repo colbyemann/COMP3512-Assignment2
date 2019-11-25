@@ -1,7 +1,7 @@
 <?php 
     include("includes/header.inc.php");
+    include("includes/session-redirect.inc.php");
     include("includes/profile.inc.php");
-    include("includes/session.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     </head>
     <body>
         <?php 
-            buildMenu_In();
+            buildMenu_Out();
             buildProfilePage();
         ?>
     </body>

@@ -1,7 +1,6 @@
 <?php 
 
 function buildPopupMenus() {
-    session_start();
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
     if (isset($_POST['login'])) {

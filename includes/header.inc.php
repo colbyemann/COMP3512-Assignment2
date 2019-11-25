@@ -1,4 +1,6 @@
 <?php
+    require_once("includes/config.inc.php");
+    require_once("includes/db-functions.inc.php");
 
 function buildHead()
 {
@@ -15,7 +17,7 @@ function buildHead()
 		";
 };
 
-function buildMenu_In()
+function buildMenu_Out()
 {
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
@@ -36,7 +38,7 @@ function buildMenu_In()
 	</header>";
 };
 
-function buildMenu_Out()
+function buildMenu_In()
 {
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->

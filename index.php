@@ -1,9 +1,6 @@
 <?php
-require_once("includes/config.inc.php");
-require_once("includes/db-functions.inc.php");
-
-include("includes/validate.inc.php");
 include("includes/header.inc.php");
+include("includes/validate.inc.php");
 include("includes/home.inc.php");
 ?>
 
@@ -15,7 +12,7 @@ include("includes/home.inc.php");
         <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
-        <?php buildMenu_Out(); ?>
+        <?php buildMenu_In(); ?>
         <main class="container">
             <?php 
                 buildHomePage();
