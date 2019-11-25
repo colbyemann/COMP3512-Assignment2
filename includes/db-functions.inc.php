@@ -35,6 +35,6 @@ function runQuery($connection, $sql, $parameters=array())     {
         }
     }
     return $statement;
-}   
+}
 
 ?>

@@ -1,16 +1,21 @@
-<?php 
-    include("includes/header.inc.php");
-    include("includes/home.inc.php");
+<?php
+require_once("includes/config.inc.php");
+require_once("includes/db-functions.inc.php");
+
+include("includes/validate.inc.php");
+include("includes/header.inc.php");
+include("includes/home.inc.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
         <?php buildHead(); ?>
         <title>Login / Sign Up</title>
         <link rel="stylesheet" type="text/css" href="css/homelayout.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenu.css">
+        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
-        <?php buildMenu(); ?>
+        <?php buildMenu_Out(); ?>
         <main class="container">
             <?php 
                 buildHomePage();

@@ -32,7 +32,7 @@
 
 /* Style for the submit/login button */
 .form-box .btn {
-  background-color: #4CAF50;
+  background-color: green;
   color: white;
   padding: 14px 20px;
   border: none;
@@ -50,4 +50,12 @@
 /* Add some hover effects to buttons */
 .form-box .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+p.error {
+  color: white;
+  font-family: lato;
+  background: orangered;
+  display: inline-block;
+  padding: 2px 10px;
 }

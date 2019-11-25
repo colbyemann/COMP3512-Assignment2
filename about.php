@@ -1,11 +1,23 @@
-<?php include("includes/header.inc.php")?>
+<?php 
+    include("includes/header.inc.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
         <?php buildHead(); ?>
         <title>About</title>
     </head>
     <body>
-        <?php buildMenu(); ?>
+        <?php
+            session_start();
+            if(!isset($_SESSION['user_id'])) {
+                buildMenu_Out();
+                exit;
+            }
+            else {
+                buildMenu_In();
+            }
+        ?>
         <main class="container">
             <div class='box'>
                 <h1>Colby Emann</h1>

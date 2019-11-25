@@ -15,7 +15,7 @@ function buildHead()
 		";
 };
 
-function buildMenu()
+function buildMenu_In()
 {
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
@@ -24,15 +24,36 @@ function buildMenu()
 		<input class='menu-btn' type='checkbox' id='menu-btn'/>
 		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>
 		<ul class='menu'>
-			<li><a href='index.php'>Home</a></li>
+			<li><a href='profile.php'>Home</a></li>
 			<li><a href='about.php'>About</a></li>
 			<li><a href='browse-search.php'>Search</a></li>
 			<li><a href='single-country.php'>Countries</a></li>
 			<li><a href='single-city.php'>Cities</a></li>
 			<li><a href='upload.php'>Upload</a></li>
 			<li><a href='favourites.php'>Favs</a></li>
-			<li onclick='openLoginForm()'><a href='#'>Login/Logout</a></li>
-			<li onclick='openSignupForm()'><a href='#'>Sign up</a></li>
+			<li><a href='logout.php'>Logout</a></li>
+		</ul>
+	</header>";
+};
+
+function buildMenu_Out()
+{
+	echo "<header class=header>
+		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
+		<img class=logo src='images/airplane.png' alt='Airplane' style='width:40px;height:40px;'>
+		<a href='#' class='logo'>Assignment 2</a>
+		<input class='menu-btn' type='checkbox' id='menu-btn'/>
+		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>
+		<ul class='menu'>
+			<li><a href='profile.php'>Home</a></li>
+			<li><a href='about.php'>About</a></li>
+			<li><a href='browse-search.php'>Search</a></li>
+			<li><a href='single-country.php'>Countries</a></li>
+			<li><a href='single-city.php'>Cities</a></li>
+			<li><a href='upload.php'>Upload</a></li>
+			<li><a href='favourites.php'>Favs</a></li>
+			<li onclick='openLoginForm()'><a href=#>Login</a></li>
+			<li onclick='openSignupForm()'><a href=#>Signup</a></li>
 		</ul>
 	</header>";
 };
