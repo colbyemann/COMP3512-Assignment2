@@ -8,6 +8,7 @@ if(!isset($_SESSION['user_id'])) {
 }
 else {
    // Let the navigation continue
+   //Testing testing
 }
 
 ?>
