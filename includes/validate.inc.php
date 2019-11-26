@@ -1,6 +1,6 @@
 <?php 
 
-function buildPopupMenus() {
+    session_start();
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
     if (isset($_POST['login'])) {
@@ -52,50 +52,53 @@ function buildPopupMenus() {
         }
     }
 
-    echo "<div class='popup' id='login-box'>
-        <form method='post' action='' class='form-box'>
-            <h1>Login</h1>
-    
-            <label for='email'><b>Email</b></label>
-            <input type='text' autocomplete='username' placeholder='Enter Email' name='email' required>
-    
-            <label for='password'><b>Password</b></label>
-            <input type='password' autocomplete='current-password' placeholder='Enter Password' name='password' required>
-    
-            <button type='submit' name='login' value='login' class='btn'>Login</button>
-            <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
-        </form>
-    </div>
-    
-    <div class='popup' id='signup-box'>
-        <form action='' class='form-box'>
-            <h1>Sign up</h1>
+    function buildPopLogin() {
+        echo "<div class='popup' id='login-box'>
+            <form method='post' action='' class='form-box'>
+                <h1>Login</h1>
+        
+                <label for='email'><b>Email</b></label>
+                <input type='text' autocomplete='username' placeholder='Enter Email' name='email' required>
+        
+                <label for='password'><b>Password</b></label>
+                <input type='password' autocomplete='current-password' placeholder='Enter Password' name='password' required>
+        
+                <button type='submit' name='login' value='login' class='btn'>Login</button>
+                <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
+            </form>
+        </div>";
+    };
 
-            <label for='fname'><b>First Name</b></label>
-            <input type='text' placeholder='Enter first name' name='fname' required>
+    function buildPopSignup() {
+        echo "<div class='popup' id='signup-box'>
+            <form action='' class='form-box'>
+                <h1>Sign up</h1>
 
-            <label for='lname'><b>Last Name</b></label>
-            <input type='text' placeholder='Enter last name' name='lname' required>
+                <label for='fname'><b>First Name</b></label>
+                <input type='text' placeholder='Enter first name' name='fname' required>
 
-            <label for='city'><b>City</b></label>
-            <input type='text' placeholder='Enter city' name='city' required>
+                <label for='lname'><b>Last Name</b></label>
+                <input type='text' placeholder='Enter last name' name='lname' required>
 
-            <label for='country'><b>Country</b></label>
-            <input type='text' placeholder='Enter country' name='country' required>
+                <label for='city'><b>City</b></label>
+                <input type='text' placeholder='Enter city' name='city' required>
 
-            <label for='email'><b>Email</b></label>
-            <input type='text' autocomplete='username' placeholder='Enter email' name='email' required>
+                <label for='country'><b>Country</b></label>
+                <input type='text' placeholder='Enter country' name='country' required>
 
-            <label for='psw'><b>Password</b></label>
-            <input type='password'  autocomplete='new-passwordd' placeholder='Enter password' name='psw' required>
-            
-            <label for='psw-confirm'><b>Confirm Password</b></label>
-            <input type='password' autocomplete='new-password' placeholder='Confirm password' name='psw-confirm' required>
+                <label for='email'><b>Email</b></label>
+                <input type='text' autocomplete='username' placeholder='Enter email' name='email' required>
 
-            <button type='submit' name='signup' value='signup' class='btn'>Sign Up</button>
-            <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
-        </form>
-    </div>";
-};
+                <label for='psw'><b>Password</b></label>
+                <input type='password'  autocomplete='new-passwordd' placeholder='Enter password' name='psw' required>
+                
+                <label for='psw-confirm'><b>Confirm Password</b></label>
+                <input type='password' autocomplete='new-password' placeholder='Confirm password' name='psw-confirm' required>
+
+                <button type='submit' name='signup' value='signup' class='btn'>Sign Up</button>
+                <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
+            </form>
+        </div>";
+    };
 
 ?>

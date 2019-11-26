@@ -1,5 +1,6 @@
 <?php
 include("includes/header.inc.php");
+//include("includes/session-allow.inc.php");
 include("includes/validate.inc.php");
 include("includes/home.inc.php");
 ?>
@@ -19,7 +20,8 @@ include("includes/home.inc.php");
         <main class="container">
             <?php 
                 buildHomePage();
-                buildPopupMenus();
+                buildPopLogin();
+                buildPopSignup();
             ?>
         </main>
         <script src="js/pop.js"></script>

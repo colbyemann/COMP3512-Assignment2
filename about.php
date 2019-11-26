@@ -1,6 +1,6 @@
 <?php 
     include("includes/header.inc.php");
-    include("includes/session-allow.inc.php");
+    //include("includes/session-allow.inc.php");
     include("includes/validate.inc.php");
 ?>
 
@@ -27,7 +27,10 @@
                 <h1>Byron Stuike</h1>
                 <a href="https://github.com/colbyemann/COMP3512-Assignment2">https://github.com/colbyemann/COMP3512-Assignment2</a>
             </div>
-            <?php buildPopupMenus(); ?>
+            <?php 
+                buildPopLogin();
+                buildPopSignup();
+            ?>
         </main>
         <script src="js/pop.js"></script>
     </body>

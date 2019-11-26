@@ -1,6 +1,6 @@
 <?php 
     include("includes/header.inc.php");
-    include("includes/session-allow.inc.php");
+    //include("includes/session-allow.inc.php");
     include("includes/validate.inc.php");
     include("includes/countryfilter.inc.php");
 ?>
@@ -46,7 +46,10 @@
                 <h3>Travel Photos</h3>
                 <picture id="photosList"></picture>
             </div>
-            <?php buildPopupMenus(); ?>
+            <?php 
+                buildPopLogin();
+                buildPopSignup();
+            ?>
         </main>
         <script src="js/pop.js"></script>
     </body>

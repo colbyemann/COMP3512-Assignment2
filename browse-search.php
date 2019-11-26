@@ -1,6 +1,6 @@
 <?php 
     include("includes/header.inc.php");
-    include("includes/session-allow.inc.php");
+    //include("includes/session-allow.inc.php");
     include("includes/validate.inc.php");
     include("includes/search.inc.php");
 ?>
@@ -26,7 +26,10 @@
         ?>
         <main class="container">
             <?php buildSearch(); ?>
-            <?php buildPopupMenus(); ?>
+            <?php 
+                buildPopLogin();
+                buildPopSignup();
+            ?>
         </main>
         <script src="js/pop.js"></script>
     </body>
