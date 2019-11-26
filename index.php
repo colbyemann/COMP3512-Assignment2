@@ -1,6 +1,5 @@
 <?php
 include("includes/header.inc.php");
-//include("includes/session-allow.inc.php");
 include("includes/validate.inc.php");
 include("includes/home.inc.php");
 ?>

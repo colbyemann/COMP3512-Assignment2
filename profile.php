@@ -1,6 +1,6 @@
 <?php 
     include("includes/header.inc.php");
-    include("includes/session-redirect.inc.php");
+    include("includes/session.inc.php");
     include("includes/profile.inc.php");
 ?>
 
