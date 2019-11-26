@@ -11,7 +11,8 @@
     </head>
     <body>
         <?php 
-            buildMenu_Out();
+            buildMenu();
+            buildLogoutMenu();
             buildProfilePage();
         ?>
     </body>
