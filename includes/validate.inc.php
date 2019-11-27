@@ -55,7 +55,7 @@
     function buildPopLogin() {
         echo "<div class='popup' id='login-box'>
             <form method='post' action='' class='form-box'>
-                <h1>Login</h1>
+                <h2>Login</h2>
         
                 <label for='email'><b>Email</b></label>
                 <input type='text' autocomplete='username' placeholder='Enter Email' name='email' required>
@@ -71,8 +71,8 @@
 
     function buildPopSignup() {
         echo "<div class='popup' id='signup-box'>
-            <form action='' class='form-box'>
-                <h1>Sign up</h1>
+            <form method='post' action='' class='form-box'>
+                <h2>Sign up</h2>
 
                 <label for='fname'><b>First Name</b></label>
                 <input type='text' placeholder='Enter first name' name='fname' required>
@@ -90,9 +90,9 @@
                 <input type='text' autocomplete='username' placeholder='Enter email' name='email' required>
 
                 <label for='psw'><b>Password</b></label>
-                <input type='password'  autocomplete='new-passwordd' placeholder='Enter password' name='psw' required>
+                <input type='password'  autocomplete='new-passwordd' placeholder='Enter password' name='password' required>
                 
-                <label for='psw-confirm'><b>Confirm Password</b></label>
+                <label for='password-confirm'><b>Confirm Password</b></label>
                 <input type='password' autocomplete='new-password' placeholder='Confirm password' name='psw-confirm' required>
 
                 <button type='submit' name='signup' value='signup' class='btn'>Sign Up</button>
