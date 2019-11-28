@@ -7,6 +7,7 @@
 <html lang="en">
         <?php buildHead(); ?>
         <title>About</title>
+        <link rel="stylesheet" type="text/css" href="css/about.css">
         <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
@@ -21,10 +22,16 @@
         ?>
         <main class="container">
             <div class='box'>
-                <h1>Colby Emann</h1>
-                <h1>Jakub </h1>
-                <h1>Byron Stuike</h1>
-                <a href="https://github.com/colbyemann/COMP3512-Assignment2">https://github.com/colbyemann/COMP3512-Assignment2</a>
+                <h2>COMP 3512 Assignment 2</h2>
+                <h3>Mount Royal University</h3>
+                <p>Professor: Randy Connolly</p>
+                <p>Fall 2019 Semester</p>
+                <br>
+                <h3>Collaborators:</h3>
+                <p><a href="https://github.com/colbyemann">Colby Emann</a>,
+                <a href="https://github.com/bstuike">Byron Stuike</a>, &
+                <a href="https://github.com/jwola586">Jakub</a></p>
+                <a href="https://github.com/colbyemann/COMP3512-Assignment2">Assignment Repository</a>
             </div>
             <?php 
                 buildPopLogin();
