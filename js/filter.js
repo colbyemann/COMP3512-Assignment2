@@ -64,4 +64,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function search(input, test) {
+
+        var filter, ul, li, a, i, txtValue;
+
+        filter = input.toUpperCase();
+        if (test == 1) { ul = document.getElementById("countryList"); }
+        else if (test == 2) { ul = document.getElementById("cityList"); }
+        li = ul.getElementsByTagName('li');
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
 });
