@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const allData = [];
     let infoList = null;
-
-    
+   
+    if(allData.length == 0)
+    {
         fetch(endpoint)
         .then((resp) => resp.json())
         .then(function (data) {
@@ -14,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
             populateCountries();
         })
         .catch(error => console.log(error));
-    
+    };
+
 
     function populateCountries() {
         allData[0].forEach((d) => {
@@ -22,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('countryList').innerHTML = infoList;
         infoList = null;
     };
+
+
 
     
     function makeList(d) {
@@ -87,6 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 li[i].style.display = "none";
             }
         }
-    }
+    };
 
 });
