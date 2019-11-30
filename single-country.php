@@ -51,5 +51,6 @@
             ?>
         </main>
         <script src="js/pop.js"></script>
+        <script src="js/filter.js"></script>
     </body>
 </html>
