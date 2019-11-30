@@ -2,6 +2,7 @@
     include("includes/header.inc.php");
     include("includes/validate.inc.php");
     include("includes/countryfilter.inc.php");
+    include("includes/single-country.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +29,17 @@
 
             <div class="box info">
                 <h3>Information</h3>
-                <h4 id="titleInfo">Select Country for Information</h4>
-                <section id="infoSec">
-                    
-                </section>
+                <?php
+
+                if(!isset($_GET['ISO']))
+                {
+                    echo "<h4 id='titleInfo'>Select Country for Information</h4>";
+                }
+                else
+                {
+                    getInfo($_GET['ISO']);
+                }
+                ?>
             </div>
 
             <div class="box city">
