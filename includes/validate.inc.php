@@ -37,7 +37,7 @@
         $sql->execute();
      
         if ($sql->rowCount() > 0) {
-            echo '<p class="error">The email address is already registered!</p>';
+            echo '<p class="error">That email address is already registered!</p>';
         }
      
         if ($sql->rowCount() == 0) {
@@ -58,7 +58,7 @@
                 $_SESSION['logged_in'] = true;
                 header('Location: profile.php');
             } else {
-                echo '<p class="error">Something went wrong!</p>';
+                echo '<p class="error">Im sorry, something went wrong!</p>';
             }
         }
     }
