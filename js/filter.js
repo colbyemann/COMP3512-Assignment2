@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const endpoint = 'http://localhost/assignment2/api-countries.php';
+    const endpoint = 'http://localhost/Assignment_2/api-countries.php';
 
     const allData = [];
     let infoList = null;
@@ -25,13 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
     function makeList(d) {
+        let a = document.createElement("a");
+        a.href = "http://localhost/Assignment_2/api-countries.php?ISO=" + d.ISO;
+
         let li = document.createElement("li");
         li.appendChild(document.createTextNode(d.CountryName));
         li.id = d.ISO; 
+
+        a.appendChild(li);
         
 
-        if (infoList == null) { infoList = li.outerHTML; }
-        else { infoList = infoList + li.outerHTML; };
+        if (infoList == null) { infoList = a.outerHTML; }
+        else { infoList = infoList + a.outerHTML; };
     };
 
       //search country
