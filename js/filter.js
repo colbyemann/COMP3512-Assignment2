@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     function populateCountries() {
-        allData[0].forEach((d) => { console.log(d.CountryName);
+        allData[0].forEach((d) => {
             makeList(d) })
         document.getElementById('countryList').innerHTML = infoList;
         infoList = null;
@@ -34,6 +34,34 @@ document.addEventListener("DOMContentLoaded", function () {
         else { infoList = infoList + li.outerHTML; };
     };
 
+      //search country
+      document.getElementById('text').addEventListener("input", function (e) {
+        search(e.target.value, 1);
+
+    });
+
+    //on selectiong of radio button filter to Contiant or Images
+    document.querySelector("#countryFilter").addEventListener('input', function (e) {
+        if (e.target && e.target.nodeName == "INPUT") {
+            let x = e.target.value;
+           // document.getElementById('text2').value = "";
+            //document.getElementById('text').value = "";
+            filterCountries(x); 
+        }
+    });
+
+     //filters based on Continent
+     function filterCountries(code) {
+        allData[0].forEach((d) => {
+            console.log(code);
+            if (d.Continent == code) {
+                makeList(d);
+            }
+        }
+        )
+        document.getElementById('countryList').innerHTML = infoList;
+        infoList = null;
+    }
 
 
 });
