@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function makeList(d) {
         let a = document.createElement("a");
-        a.href = "http://localhost/Assignment_2/api-countries.php?ISO=" + d.ISO;
+        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + d.ISO;
 
         let li = document.createElement("li");
         li.appendChild(document.createTextNode(d.CountryName));
