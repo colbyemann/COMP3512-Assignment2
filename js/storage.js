@@ -30,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     data.forEach( (item) => {
                         obj.push(item);
                     });
-                    //https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
-                    obj.sort((a, b) => (a.name > b.name) ? 1 : -1);
+                    sortList(key, obj);
                     updateStorage(key, obj);
                 })
                 .catch(error => console.error(error));
@@ -46,5 +45,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // retrieve from storage or return an empty array if no data exists
     function retrieveStorage(key) {
         return JSON.parse(localStorage.getItem(key)) || [];
+    }
+
+    function sortList(key, obj) {
+        //https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+        switch(key) {
+            case "countries":
+                obj.sort((a, b) => (a.CountryName > b.CountryName) ? 1 : -1);
+                break;
+            case "cities":
+                obj.sort((a, b) => (a.AsciiName > b.AsciiName) ? 1 : -1);
+                break;
+            case "languages":
+                obj.sort((a, b) => (a.name > b.name) ? 1 : -1);
+                break;
+            default:
+                // code block
+        }
     }
 });
