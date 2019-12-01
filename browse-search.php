@@ -28,8 +28,57 @@
             <?php 
                 buildPopLogin();
                 buildPopSignup();
+                filterArea();
+                outputPhotos();
             ?>
+
         </main>
         <script src="js/pop.js"></script>
     </body>
 </html>
+
+<?php
+
+function allPhotosStatement ()
+{
+    $sql = 'SELECT * FROM imagedetails';
+    return $sql;
+}
+
+function getAllPhotos() 
+{
+ try {
+       $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
+        $sql = allPhotosStatement();
+        $result = runQuery($connection, $sql, null);
+        return $result;
+
+   }
+   catch (PDOException $e) {
+      die( $e->getMessage() );
+   }
+}
+
+function outputPhotos()
+{
+    $photos = getAllPhotos();
+    foreach($photos as $p) {
+       outputSinglePhoto($p); 
+    }
+}
+
+function outputSinglePhoto($photo)
+{
+   echo "<img src='images/square150/". $photo['Path'] . "'>";
+   echo "<button type=button>View</button>";
+   echo "<button type=button>Add to Favourites</button>";
+}
+
+function filterArea()
+{
+    echo "<select></select>";
+    echo "<select></select>";
+}
+
+
+?>
