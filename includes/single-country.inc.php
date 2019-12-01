@@ -90,7 +90,7 @@ function getPhotos($iso)
 
     foreach($photos as $p)
     {
-        echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src=http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID'] . "></img></a>";
+        echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src='http://localhost/images/square75/". $p['Path'] . "'></img></a>";
     }
 
 }
