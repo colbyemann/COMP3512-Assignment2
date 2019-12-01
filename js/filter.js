@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    //change links
     const endpoint = 'http://localhost/Assignment_2/api-countries.php';
 
     const allData = [];
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function makeList(d) {
         let a = document.createElement("a");
+        //change links
         a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + d.ISO;
 
         let li = document.createElement("li");

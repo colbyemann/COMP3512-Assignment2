@@ -45,7 +45,20 @@
             <div class="box city">
                 <h3>City List</h3>
                 <section>
-                    <ul id="cityList">Select Country</ul>
+                    <ul id="cityList">
+                                <?php
+
+                if(!isset($_GET['ISO']))
+                {
+                    echo "<h4>Select Country for Information</h4>";
+                }
+                else
+                {
+                    getCities($_GET['ISO']) ;
+                }
+                ?>
+                        
+                    </ul>
                 </section>
             </div>
 
