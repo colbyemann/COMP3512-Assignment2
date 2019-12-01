@@ -2,12 +2,13 @@
 
     session_start();
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+    $today = date('Y-m-d h:i:sa');
 
     if (isset($_POST['login'])) {
         $username = $_POST['email'];
         $password = $_POST['password'];
         $sql = $connection->prepare("SELECT UserID, UserName, Password FROM userslogin WHERE UserName=:email");
-        $sql->bindParam("email", $username, PDO::PARAM_STR);
+        $sql->bindValue("email", $username, PDO::PARAM_STR);
         $sql->execute();
         $result = $sql->fetch(PDO::FETCH_ASSOC);
     
@@ -33,7 +34,7 @@
         $digest = password_hash($password, PASSWORD_BCRYPT);
 
         $sql = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
-        $sql->bindParam("email", $username, PDO::PARAM_STR);
+        $sql->bindValue("email", $username, PDO::PARAM_STR);
         $sql->execute();
      
         if ($sql->rowCount() > 0) {
@@ -42,23 +43,23 @@
      
         if ($sql->rowCount() == 0) {
             $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
-            $statement->bindParam("fname", $firstname, PDO::PARAM_STR);
-            $statement->bindParam("lname", $lastname, PDO::PARAM_STR);
-            $statement->bindParam("city", $city, PDO::PARAM_STR);
-            $statement->bindParam("country", $country, PDO::PARAM_STR);
-            $statement->bindParam("email", $username, PDO::PARAM_STR);
+            $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
+            $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
+            $statement->bindValue("city", $city, PDO::PARAM_STR);
+            $statement->bindValue("country", $country, PDO::PARAM_STR);
+            $statement->bindValue("email", $username, PDO::PARAM_STR);
             $insert = $statement->execute();
 
-            $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password) VALUES (:email,:digest)");
-            $sql->bindParam("email", $username, PDO::PARAM_STR);
-            $sql->bindParam("digest", $digest, PDO::PARAM_STR);
+            $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,1,'$today')");
+            $sql->bindValue("email", $username, PDO::PARAM_STR);
+            $sql->bindValue("digest", $digest, PDO::PARAM_STR);
             $result = $sql->execute();
      
             if ($result) {
                 $_SESSION['logged_in'] = true;
                 header('Location: profile.php');
             } else {
-                echo '<p class="error">Im sorry, something went wrong!</p>';
+                echo '<p class="error">I&lsaquo;m sorry, something went wrong!</p>';
             }
         }
     }
