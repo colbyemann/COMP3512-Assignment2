@@ -203,3 +203,18 @@ a {
 		display: none;
 	}
 }
+
+#singlePhoto,
+#maps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    margin: 0;
+}
+
+#singlePhoto img,
+#maps img {
+    border: 1px solid #7200ca;
+    cursor: default;
+}

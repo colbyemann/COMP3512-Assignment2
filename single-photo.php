@@ -18,5 +18,9 @@
                 buildLoginMenu();
             }
         ?>
+        <main>
+            <div id="singlePhoto"></div>
+        </main>
+        <script src="js/single-photo.js"></script>
     </body>
 </html>

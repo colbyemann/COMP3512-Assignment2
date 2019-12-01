@@ -23,6 +23,7 @@ include("includes/home.inc.php");
                 buildPopSignup();
             ?>
         </main>
+        <script src="js/storage.js"></script>
         <script src="js/pop.js"></script>
     </body>
 </html>
