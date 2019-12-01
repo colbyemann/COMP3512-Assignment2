@@ -20,6 +20,7 @@ function buildCountryFilter() {
 				</ul>
 			<h4>Clear All Filters</h4>
 			<input id='button' type='button' value='Reset'>
+			<input id='buttonhide' type='button' value='Hide'>
 		</section>
 	</div>
 

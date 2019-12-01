@@ -2,20 +2,21 @@
 
     session_start();
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+    $today = date('Y-m-d h:i:sa');
 
     if (isset($_POST['login'])) {
         $username = $_POST['email'];
         $password = $_POST['password'];
-        $query = $connection->prepare("SELECT UserID, UserName, Password FROM userslogin WHERE UserName=:email");
-        $query->bindParam("email", $username, PDO::PARAM_STR);
-        $query->execute();
-        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $sql = $connection->prepare("SELECT UserID, UserName, Password FROM userslogin WHERE UserName=:email");
+        $sql->bindValue("email", $username, PDO::PARAM_STR);
+        $sql->execute();
+        $result = $sql->fetch(PDO::FETCH_ASSOC);
     
         if (!$result) {
             echo '<p class="error">Email or password is wrong!</p>';
         } else {
             if (password_verify($password, $result['Password'])) {
-                $_SESSION['user_id'] = $result['UserID'];
+                $_SESSION['logged_in'] = true;
                 header('Location: profile.php');
             } else {
                 echo '<p class="error">Email or password is wrong!</p>';
@@ -24,30 +25,41 @@
     }
     
     if (isset($_POST['signup'])) {
- 
+        $firstname = $_POST['fname'];
+        $lastname = $_POST['lname'];
+        $city = $_POST['city'];
+        $country = $_POST['country'];
         $username = $_POST['email'];
         $password = $_POST['password'];
         $digest = password_hash($password, PASSWORD_BCRYPT);
+
+        $sql = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
+        $sql->bindValue("email", $username, PDO::PARAM_STR);
+        $sql->execute();
      
-        $query = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
-        $query->bindParam("email", $username, PDO::PARAM_STR);
-        $query->execute();
-     
-        if ($query->rowCount() > 0) {
-            echo '<p class="error">The email address is already registered!</p>';
+        if ($sql->rowCount() > 0) {
+            echo '<p class="error">That email address is already registered!</p>';
         }
      
-        if ($query->rowCount() == 0) {
-            $query = $connection->prepare("INSERT INTO userslogin(UserName,Password) VALUES (:email,:digest)");
-            $query->bindParam("email", $username, PDO::PARAM_STR);
-            $query->bindParam("digest", $digest, PDO::PARAM_STR);
-            $result = $query->execute();
+        if ($sql->rowCount() == 0) {
+            $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
+            $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
+            $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
+            $statement->bindValue("city", $city, PDO::PARAM_STR);
+            $statement->bindValue("country", $country, PDO::PARAM_STR);
+            $statement->bindValue("email", $username, PDO::PARAM_STR);
+            $insert = $statement->execute();
+
+            $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,1,'$today')");
+            $sql->bindValue("email", $username, PDO::PARAM_STR);
+            $sql->bindValue("digest", $digest, PDO::PARAM_STR);
+            $result = $sql->execute();
      
             if ($result) {
-                $_SESSION['user_id'] = $result['UserID'];
+                $_SESSION['logged_in'] = true;
                 header('Location: profile.php');
             } else {
-                echo '<p class="error">Something went wrong!</p>';
+                echo '<p class="error">I&lsaquo;m sorry, something went wrong!</p>';
             }
         }
     }

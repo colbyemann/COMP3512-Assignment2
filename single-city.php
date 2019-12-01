@@ -14,7 +14,7 @@
     <body>
         <?php
             buildMenu();
-            if(isset($_SESSION['user_id'])) {
+            if(isset($_SESSION['logged_in'])) {
                 buildLogoutMenu();
             }
             else {

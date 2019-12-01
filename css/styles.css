@@ -19,6 +19,7 @@ main {padding-top: 125px;}
 	border-radius: 5px;
 	padding: 20px;
 	font-size: 150%;
+	overflow: auto;
 }
 
 ul#cityList,
@@ -29,6 +30,7 @@ ul#countryFilter {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	
 }
 
 input,
@@ -200,4 +202,19 @@ a {
 	.header .menu-icon {
 		display: none;
 	}
+}
+
+#singlePhoto,
+#maps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    margin: 0;
+}
+
+#singlePhoto img,
+#maps img {
+    border: 1px solid #7200ca;
+    cursor: default;
 }

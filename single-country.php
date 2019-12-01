@@ -2,6 +2,7 @@
     include("includes/header.inc.php");
     include("includes/validate.inc.php");
     include("includes/countryfilter.inc.php");
+    include("includes/single-country.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     <body>
         <?php
             buildMenu();
-            if(isset($_SESSION['user_id'])) {
+            if(isset($_SESSION['logged_in'])) {
                 buildLogoutMenu();
             }
             else {
@@ -28,16 +29,36 @@
 
             <div class="box info">
                 <h3>Information</h3>
-                <h4 id="titleInfo">Select Country for Information</h4>
-                <section id="infoSec">
-                    
-                </section>
+                <?php
+
+                if(!isset($_GET['ISO']))
+                {
+                    echo "<h4 id='titleInfo'>Select Country for Information</h4>";
+                }
+                else
+                {
+                    getInfo($_GET['ISO']);
+                }
+                ?>
             </div>
 
             <div class="box city">
                 <h3>City List</h3>
                 <section>
-                    <ul id="cityList">Select Country</ul>
+                    <ul id="cityList">
+                                <?php
+
+                if(!isset($_GET['ISO']))
+                {
+                    echo "<h4>Select Country for Information</h4>";
+                }
+                else
+                {
+                    getCities($_GET['ISO']) ;
+                }
+                ?>
+                        
+                    </ul>
                 </section>
             </div>
 
@@ -51,5 +72,6 @@
             ?>
         </main>
         <script src="js/pop.js"></script>
+        <script src="js/filter.js"></script>
     </body>
 </html>
