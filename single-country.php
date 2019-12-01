@@ -64,14 +64,18 @@
 
             <div class="box travelphotos">
                 <h3>Travel Photos</h3>
-                <picture id="photosList"></picture>
+                <picture id="photosList">
+                <?php getPhotos($_GET['ISO']) ?>
+                </picture>
             </div>
             <?php 
                 buildPopLogin();
                 buildPopSignup();
             ?>
         </main>
+        <script src="js/storage.js"></script>
         <script src="js/pop.js"></script>
         <script src="js/filter.js"></script>
+        
     </body>
 </html>

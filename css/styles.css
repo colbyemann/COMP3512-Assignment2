@@ -218,3 +218,5 @@ a {
     border: 1px solid #7200ca;
     cursor: default;
 }
+
+div.show {display: none;}

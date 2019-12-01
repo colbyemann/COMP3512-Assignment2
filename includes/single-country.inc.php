@@ -6,6 +6,7 @@ require_once('includes\db-functions.inc.php');
 
 function getInfo($iso){
 
+    //change links
 $data = file_get_contents("http://localhost/Assignment_2/api-countries.php?ISO=" . $iso);
 $country = json_decode($data, true);
 
@@ -72,11 +73,24 @@ function parameterCheck($parameter, $title){
 
 function getCities($iso)
 {
+    //change links
     $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?ISO=" . $iso);
     $city = json_decode($data, true);
 
     foreach($city as $c){
-        echo "<a href='http://localhost/Assignment_2/single-city.php?citycode". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
+        echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
+    }
+
+}
+
+function getPhotos($iso)
+{
+    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?ISO=" . $iso);
+    $photos = json_decode($data, true);
+
+    foreach($photos as $p)
+    {
+        echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src=http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID'] . "></img></a>";
     }
 
 }

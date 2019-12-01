@@ -74,6 +74,32 @@ document.addEventListener("DOMContentLoaded", function () {
         infoList = null;
     }
 
+    //Country Reset onclick button
+    document.querySelector("#button").addEventListener("click", function (e) {
+        if (e.target && e.target.nodeName == "INPUT") {
+            populateCountries();
+            document.getElementById('text').value = "";
+            let x = document.getElementsByName("cont");
+            for (var i = 0; i < x.length; i++)
+                x[i].checked = false;
+        }
+    });
+
+    document.querySelector("#buttonhide").addEventListener("click", function (e) {
+        if (e.target && e.target.nodeName == "INPUT") {
+            document.querySelector("div.countryfilter section").style.display = "none";
+            document.querySelector("div.show").style.display = "block";
+        }
+    });
+
+    document.querySelector("#buttonshow").addEventListener("click", function (e) {
+        if (e.target && e.target.nodeName == "INPUT") {
+            document.querySelector("div.countryfilter section").style.display = "block";
+            document.querySelector("div.show").style.display = "none";
+        }
+    });
+    
+
 
     function search(input, test) {
 
