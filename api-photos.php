@@ -14,7 +14,7 @@ else {
 };
 
 function getPhotosSQL() {
-   $sql = "SELECT ImageID,UserID,Title,Description,Latitude,Longitude,CityCode,CountryCodeISO,ContinentCode,Path,Exif FROM imagedetails";
+   $sql = "SELECT ImageID,UserID,Title,Description,Latitude,Longitude,CityCode,CountryCodeISO,ContinentCode,Path,Exif,ActualCreator FROM imagedetails";
    return $sql;
 }
 

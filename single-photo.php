@@ -21,6 +21,7 @@
         <main>
             <div id="singlePhoto"></div>
         </main>
+        <script src="js/storage.js"></script>
         <script src="js/single-photo.js"></script>
     </body>
 </html>
