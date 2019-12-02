@@ -23,4 +23,29 @@ function getImage($code)
     };
 };
 
+function getInfo($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            echo "<h2 id=picTitle>" . $p['Title'] . "</h2>";
+            echo "<p id=p1>" . $p['ActualCreator'] . "</p>" ;
+            echo "<p id=p2>" . $p['Title'] . "</p>";
+        };
+    };
+};
+
+function getDesc($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            echo "<p>" . $p['Description'] . "</p>";
+
+        };
+    };
+}
+
 ?>

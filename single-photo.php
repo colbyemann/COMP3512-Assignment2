@@ -37,7 +37,7 @@
 
   <div id="box2">
   <div id="pictureInfo">
-    
+  <?php getInfo($_GET['ImageID']); ?>
   </div>
 
   <div id ="bigButons">
@@ -49,7 +49,7 @@
   <input id="picDetails" type="button" value="Details">
   <input id="picMap" type="button" value="Map">
       <div id="descBox">
-          <p></p>
+          <?php getDesc($_GET['ImageID']); ?>
 
       </div>
       <div id="detailBox">
