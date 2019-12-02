@@ -8,6 +8,11 @@ if(isset($_GET['ISO'])) {
       $result = getPhotosByISO($connection, $_GET['ISO']);
       echo $result;
 }
+else if(isset($_GET['citycode']))
+{
+   $result = getPhotosByCode($connection, $_GET['citycode']);
+      echo $result;
+}
 else {
    $result = getAllPhotos($connection);
    echo $result;
@@ -37,6 +42,19 @@ function getAllPhotos($connection) {
 function getPhotosByISO($connection, $iso) {
    $sql = getPhotosSQL();
    $sql = $sql . " WHERE CountryCodeISO='$iso'";
+    
+   $result = runQuery($connection, $sql, null);
+   $rows = array();
+      
+   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $rows[] = $row;
+   }
+   return json_encode($rows);
+}
+
+function getPhotosByCode($connection, $code) {
+   $sql = getPhotosSQL();
+   $sql = $sql . " WHERE CityCode='$code'";
     
    $result = runQuery($connection, $sql, null);
    $rows = array();

@@ -2,6 +2,7 @@
     include("includes/header.inc.php");
     include("includes/validate.inc.php");
     include("includes/countryfilter.inc.php");
+    include("includes/single-city.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +29,33 @@
 
             <div class="box info">
                 <h3>Information</h3>
-                <h4 id="titleInfo">Select Country for Information</h4>
+                
                 <section id="infoSec">
+                    <?php
+
+                if(!isset($_GET['citycode']))
+                {
+                    echo "<h4 id='titleInfo'>Select Country for Information</h4>";
+                }
+                else
+                {
+                    getInfo($_GET['citycode']);
+                }
+                ?>
                     
                 </section>
             </div>
 
             <div class="box map">
                 <h3>Map</h3>
-                    
+                    <?php buildMap(); ?>
             </div>
 
             <div class="box travelphotos">
                 <h3>Travel Photos</h3>
-            <picture id="photosList"> </picture></div>
+            <picture id="photosList"> 
+                <?php getPhotos($_GET['citycode']) ?>
+            </picture></div>
             <?php 
                 buildPopLogin();
                 buildPopSignup();

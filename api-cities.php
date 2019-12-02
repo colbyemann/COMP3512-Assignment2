@@ -8,6 +8,11 @@ if(isset($_GET['ISO'])) {
       $result = getCitiesByISO($connection, $_GET['ISO']);
       echo $result;
 }
+else if(isset($_GET['citycode']))
+{
+   $result = getCitiesByCode($connection, $_GET['citycode']);
+      echo $result;
+}
 else {
    $result = getAllCities($connection);
    echo $result;
@@ -37,6 +42,19 @@ function getAllCities($connection) {
 function getCitiesByISO($connection, $iso) {
    $sql = getCitiesSQL();
    $sql = $sql . " WHERE CountryCodeISO='$iso'";
+    
+   $result = runQuery($connection, $sql, null);
+   $rows = array();
+      
+   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $rows[] = $row;
+   }
+   return json_encode($rows);
+}
+
+function getCitiesByCode($connection, $iso) {
+   $sql = getCitiesSQL();
+   $sql = $sql . " WHERE CityCode='$iso'";
     
    $result = runQuery($connection, $sql, null);
    $rows = array();
