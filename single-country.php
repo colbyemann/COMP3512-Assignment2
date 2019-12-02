@@ -65,7 +65,18 @@
             <div class="box travelphotos">
                 <h3>Travel Photos</h3>
                 <picture id="photosList">
-                <?php getPhotos($_GET['ISO']) ?>
+                
+                <?php
+
+                if(!isset($_GET['ISO']))
+                {
+                echo "<h4>Select Country for Images</h4>";
+                }
+                else
+                {
+                getPhotos($_GET['ISO']);
+                }
+                ?>
                 </picture>
             </div>
             <?php 
