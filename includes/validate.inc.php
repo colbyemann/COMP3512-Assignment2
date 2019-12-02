@@ -19,7 +19,7 @@
                 $_SESSION['logged_in'] = true;
                 header('Location: profile.php');
             } else {
-                echo '<p class="error">Email or password is wrong!</p>';
+                echo '<p class="popup error">Email or password is incorrect!</p>';
             }
         }
     }
@@ -31,6 +31,8 @@
         $country = $_POST['country'];
         $username = $_POST['email'];
         $password = $_POST['password'];
+        $confirm = $_POST['confirm'];
+
         $digest = password_hash($password, PASSWORD_BCRYPT);
 
         $sql = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
@@ -38,29 +40,34 @@
         $sql->execute();
      
         if ($sql->rowCount() > 0) {
-            echo '<p class="error">That email address is already registered!</p>';
+            echo '<p class="popup error">That email address is already registered!</p>';
         }
-     
-        if ($sql->rowCount() == 0) {
-            $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
-            $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
-            $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
-            $statement->bindValue("city", $city, PDO::PARAM_STR);
-            $statement->bindValue("country", $country, PDO::PARAM_STR);
-            $statement->bindValue("email", $username, PDO::PARAM_STR);
-            $insert = $statement->execute();
 
-            $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,1,'$today')");
-            $sql->bindValue("email", $username, PDO::PARAM_STR);
-            $sql->bindValue("digest", $digest, PDO::PARAM_STR);
-            $result = $sql->execute();
-     
-            if ($result) {
-                $_SESSION['logged_in'] = true;
-                header('Location: profile.php');
-            } else {
-                echo '<p class="error">I&lsaquo;m sorry, something went wrong!</p>';
+        if($_POST["password"]===$_POST["confirm"]) {
+            if ($sql->rowCount() == 0) {
+                $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
+                $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
+                $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
+                $statement->bindValue("city", $city, PDO::PARAM_STR);
+                $statement->bindValue("country", $country, PDO::PARAM_STR);
+                $statement->bindValue("email", $username, PDO::PARAM_STR);
+                $insert = $statement->execute();
+
+                $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,1,'$today')");
+                $sql->bindValue("email", $username, PDO::PARAM_STR);
+                $sql->bindValue("digest", $digest, PDO::PARAM_STR);
+                $result = $sql->execute();
+        
+                if ($result) {
+                    $_SESSION['logged_in'] = true;
+                    header('Location: profile.php');
+                } else {
+                    echo '<p class="popup error">I&lsaquo;m sorry, something went wrong!</p>';
+                }
             }
+        }
+        else {
+            echo '<p class="popup error">Passwords do not match!</p>';
         }
     }
 
@@ -101,11 +108,11 @@
                 <label for='email'><b>Email</b></label>
                 <input type='text' autocomplete='username' placeholder='Enter email' name='email' required>
 
-                <label for='psw'><b>Password</b></label>
-                <input type='password'  autocomplete='new-passwordd' placeholder='Enter password' name='password' required>
+                <label for='pswd'><b>Password</b></label>
+                <input type='password' autocomplete='new-passwordd' placeholder='Enter password' name='password' required>
                 
-                <label for='password-confirm'><b>Confirm Password</b></label>
-                <input type='password' autocomplete='new-password' placeholder='Confirm password' name='psw-confirm' required>
+                <label for='pswd-confirm'><b>Confirm Password</b></label>
+                <input type='password' autocomplete='new-password' placeholder='Confirm password' name='confirm' required>
 
                 <button type='submit' name='signup' value='signup' class='btn'>Sign Up</button>
                 <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>

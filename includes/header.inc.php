@@ -30,6 +30,7 @@ function buildMenu()
 			<li><a href='about.php'>About</a></li>
 			<li><a href='browse-search.php'>Search</a></li>
 			<li><a href='single-country.php'>Countries</a></li>
+			<li><a href='single-city.php'>Cities</a></li>
 			
 		";
 };
