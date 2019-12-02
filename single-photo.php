@@ -76,6 +76,5 @@
         </main>
         <script src="js/storage.js"></script>
         <script src="js/photo.js"></script>
-        <!-- <script src="js/single-photo.js"></script> -->
     </body>
 </html>
