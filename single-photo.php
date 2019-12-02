@@ -2,7 +2,7 @@
     include("includes/header.inc.php");
     include("includes/validate.inc.php");
     include("includes/single-photo.inc.php");
-    getArray($_GET['ImageID']);
+    getArray();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@
 
   <div id="box2">
   <div id="pictureInfo">
-    <?php getInfo(); ?>
+    
   </div>
 
   <div id ="bigButons">
@@ -83,6 +83,7 @@
   </div>
         </main>
         <script src="js/storage.js"></script>
+        <script src="js/photo.js"></script>
         <!-- <script src="js/single-photo.js"></script> -->
     </body>
 </html>
