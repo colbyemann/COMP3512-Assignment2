@@ -32,6 +32,7 @@ function getInfo($code)
             echo "<h2 id=picTitle>" . $p['Title'] . "</h2>";
             echo "<p id=p1>" . $p['ActualCreator'] . "</p>" ;
             echo "<p id=p2>" . $p['Title'] . "</p>";
+            getLocation($p['CountryCodeISO'], $p['CityCode']);
         };
     };
 };
@@ -43,9 +44,36 @@ function getDesc($code)
         if($p['ImageID'] == $code)
         {
             echo "<p>" . $p['Description'] . "</p>";
-
+            
         };
     };
-}
+};
+
+function getLocation($iso, $code)
+{
+    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=$code");
+    $cities = json_decode($data, true);
+
+    $data2 = file_get_contents("http://localhost/Assignment_2/api-countries.php?ISO=" . $iso);
+    $country = json_decode($data2, true);
+
+    foreach($country as $c){
+        if($c['ISO'] == $iso)
+        {
+        echo "<p>".  $c['CountryName'] . ", ";
+        }
+    };
+
+    foreach($cities as $c){
+        if($c['CityCode'] == $code)
+        {
+        echo $c['AsciiName'] . "</p>";
+        }
+    };
+
+    
+    
+
+};
 
 ?>
