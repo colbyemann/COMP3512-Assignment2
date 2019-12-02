@@ -20,7 +20,7 @@ foreach($country as $c){
     parameterCheck($c['CurrencyCode'], "Currency: ");
     parameterCheck($c['Population'], "Population: ");
     parameterCheck($c['TopLevelDomain'], "Domain: ");
-    
+    echo "<p>Languages: </p>";
     $lang = getLang($c['Languages']);
     foreach($lang as $l){
     parameterCheck($l['name'], "");
