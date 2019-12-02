@@ -12,6 +12,15 @@ $GLOBALS['photoArray'] = $photos;
 
 };
 
-
+function getImage($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            echo "<img src='images/medium800/". $p['Path'] . "'></img>";
+        };
+    };
+};
 
 ?>

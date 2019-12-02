@@ -28,15 +28,7 @@
 <div class="box pictureFrame">
   <div id="picBox">
   <div id="bigImage">
-    <div id="texts">
-        <section>
-
-          </section>
-          <br>
-          <div id="colors2">
-              <section></section>
-              </div>
-    </div>
+      <?php getImage($_GET['ImageID']); ?>
     
 
   </div>
