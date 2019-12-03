@@ -59,9 +59,6 @@ function getLang($code)
     }
 
     return $rows;
-   
-    
-    
 }
 
 function parameterCheck($parameter, $title){
@@ -76,6 +73,17 @@ function getCities($iso)
     //change links
     $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?ISO=" . $iso);
     $city = json_decode($data, true);
+
+    // Comparison function from https://www.php.net/manual/en/function.uasort.php
+    function cmp($a, $b) {
+    if ($a['AsciiName'] == $b['AsciiName']) {
+        return 0;
+    }
+    return ($a['AsciiName'] < $b['AsciiName']) ? -1 : 1;
+    }
+
+    // Sort and print the resulting array
+    uasort($city, 'cmp');
 
     foreach($city as $c){
         echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";

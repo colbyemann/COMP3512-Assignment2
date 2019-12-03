@@ -5,29 +5,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const allData = [];
     let infoList = null;
-   
-    if(allData.length == 0)
-    {
+
+    if(allData.length == 0) {
         fetch(endpoint)
-        .then((resp) => resp.json())
-        .then(function (data) {
-            allData.push(data);
+        .then(response => response.json())
+        .then(data => {
+            data.forEach( (item) => {
+                allData.push(item);
+            });
+            allData.sort((a, b) => (a.CountryName > b.CountryName) ? 1 : -1);
             document.querySelector("div.countrylist section").style.display = "block";
             populateCountries();
         })
-        .catch(error => console.log(error));
-    };
-
+        .catch(error => console.error(error));
+    }
 
     function populateCountries() {
-        allData[0].forEach((d) => {
+        allData.forEach((d) => {
             makeList(d) })
         document.getElementById('countryList').innerHTML = infoList;
         infoList = null;
     };
-
-
-
     
     function makeList(d) {
         let a = document.createElement("a");
@@ -63,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
      //filters based on Continent
      function filterCountries(code) {
-        allData[0].forEach((d) => {
+        allData.forEach((d) => {
             console.log(code);
             if (d.Continent == code) {
                 makeList(d);
