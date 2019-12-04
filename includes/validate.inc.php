@@ -35,41 +35,47 @@
         $password = $_POST['password'];
         $confirm = $_POST['confirm'];
 
-        $digest = password_hash($password, PASSWORD_BCRYPT);
-
-        $sql = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
-        $sql->bindValue("email", $username, PDO::PARAM_STR);
-        $sql->execute();
-     
-        if ($sql->rowCount() > 0) {
-            echo '<p class="popup error">That email address is already registered!</p>';
-        }
-
-        if($_POST["password"] === $_POST["confirm"]) {
-            if ($sql->rowCount() == 0) {
-                $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
-                $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
-                $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
-                $statement->bindValue("city", $city, PDO::PARAM_STR);
-                $statement->bindValue("country", $country, PDO::PARAM_STR);
-                $statement->bindValue("email", $username, PDO::PARAM_STR);
-                $insert = $statement->execute();
-
-                $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,'$state','$today')");
-                $sql->bindValue("email", $username, PDO::PARAM_STR);
-                $sql->bindValue("digest", $digest, PDO::PARAM_STR);
-                $result = $sql->execute();
+        // Validate e-mail
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $sql = $connection->prepare("SELECT UserName FROM userslogin WHERE UserName=:email");
+            $sql->bindValue("email", $username, PDO::PARAM_STR);
+            $sql->execute();
         
-                if ($result) {
-                    $_SESSION['logged_in'] = true;
-                    header('Location: profile.php');
-                } else {
-                    echo '<p class="popup error">I&lsaquo;m sorry, something went wrong!</p>';
+            if ($sql->rowCount() > 0) {
+                echo '<p class="popup error">That email address is already registered!</p>';
+            }
+
+            $digest = password_hash($password, PASSWORD_BCRYPT);
+
+            if($_POST["password"] === $_POST["confirm"]) {
+                if ($sql->rowCount() == 0) {
+                    $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
+                    $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
+                    $statement->bindValue("lname", $lastname, PDO::PARAM_STR);
+                    $statement->bindValue("city", $city, PDO::PARAM_STR);
+                    $statement->bindValue("country", $country, PDO::PARAM_STR);
+                    $statement->bindValue("email", $username, PDO::PARAM_STR);
+                    $insert = $statement->execute();
+
+                    $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,'$state','$today')");
+                    $sql->bindValue("email", $username, PDO::PARAM_STR);
+                    $sql->bindValue("digest", $digest, PDO::PARAM_STR);
+                    $result = $sql->execute();
+            
+                    if ($result) {
+                        $_SESSION['logged_in'] = true;
+                        header('Location: profile.php');
+                    } else {
+                        echo '<p class="popup error">I&lsaquo;m sorry, something went wrong!</p>';
+                    }
                 }
+            }
+            else {
+                echo '<p class="popup error">Passwords do not match!</p>';
             }
         }
         else {
-            echo '<p class="popup error">Passwords do not match!</p>';
+            echo '<p class="popup error">That email address is not valid!</p>';
         }
     }
 
