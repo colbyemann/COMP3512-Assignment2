@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //change links
     const endpoint = 'http://localhost/Assignment_2/api-countries.php';
+    const endpoint2 = 'http://localhost/Assignment_2/api-photos.php';
 
     const allData = [];
+    const allPhotos = [];
+    const checkCountry = [];
     let infoList = null;
 
     if(allData.length == 0) {
@@ -20,21 +23,33 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error(error));
     }
 
+    if(allPhotos.length == 0) {
+        fetch(endpoint2)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach( (item) => {
+                allPhotos.push(item);
+            });
+            
+        })
+        .catch(error => console.error(error));
+    }
+
     function populateCountries() {
         allData.forEach((d) => {
-            makeList(d) })
+            makeList(d.ISO, d.CountryName) })
         document.getElementById('countryList').innerHTML = infoList;
         infoList = null;
     };
     
-    function makeList(d) {
+    function makeList(iso, name) {
         let a = document.createElement("a");
         //change links
-        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + d.ISO;
+        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + iso;
 
         let li = document.createElement("li");
-        li.appendChild(document.createTextNode(d.CountryName));
-        li.id = d.ISO; 
+        li.appendChild(document.createTextNode(name));
+        li.id = iso; 
 
         a.appendChild(li);
         
@@ -53,9 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#countryFilter").addEventListener('input', function (e) {
         if (e.target && e.target.nodeName == "INPUT") {
             let x = e.target.value;
-           // document.getElementById('text2').value = "";
-            //document.getElementById('text').value = "";
-            filterCountries(x); 
+           
+            if (x == "IM") {
+                filterImages();
+            }
+            else { filterCountries(x); }
         }
     });
 
@@ -64,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         allData.forEach((d) => {
             console.log(code);
             if (d.Continent == code) {
-                makeList(d);
+                makeList(d.ISO, d.CountryName);
             }
         }
         )
@@ -97,6 +114,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     
+    
+
+    //Used to filter images on country
+    function filterImages() {
+        {
+                allPhotos.forEach((d) => {
+                    
+                    allData.forEach((x) => {
+                        if(x.ISO == d.CountryCodeISO)
+                        {
+                            if(checkCountry.includes(x.ISO) == false){
+                                checkCountry.push(x.ISO);
+                                makeList(x.ISO, x.CountryName);
+                            }
+                           
+                        }
+                    
+                    }
+                    )
+
+                })
+
+                document.getElementById('countryList').innerHTML = infoList;
+                infoList = null;
+    }}
 
 
     function search(input, test) {
