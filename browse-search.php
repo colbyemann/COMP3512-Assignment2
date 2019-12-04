@@ -24,12 +24,38 @@
             }
         ?>
         <main class="container">
-            <?php buildSearch(); ?>
-            <?php 
+            <?php buildSearch(); 
+        
                 buildPopLogin();
                 buildPopSignup();
-                filterArea();
-                outputPhotos();
+                
+            ?>
+                <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+                <button class="button" type="submit"> Filter </button>   
+                    
+                <?php
+                populateCountryList();
+                ?>
+                    
+                </form>
+            <?php
+            
+            if($_SERVER["REQUEST_METHOD"] == "GET") {
+               if (isset($_GET['ISO'])) {
+                   outputCountryPhotos($_GET['ISO']);
+                   
+               } 
+               else
+               {
+                    outputPhotos();
+               }
+            }
+    
+            
+               
+                
+    
+                      
             ?>
 
         </main>
@@ -39,45 +65,82 @@
 
 <?php
 
-function allPhotosStatement ()
+function getPhotos ()
 {
-    $sql = 'SELECT * FROM imagedetails';
-    return $sql;
+    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php");
+    $photos = json_decode($data, true);
+    return $photos;
 }
 
-function getAllPhotos() 
+function getPhotosByCountry($iso)
 {
- try {
-       $connection = setConnectionInfo(DBCONNSTRING, DBUSER, DBPASS);
-        $sql = allPhotosStatement();
-        $result = runQuery($connection, $sql, null);
-        return $result;
+    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?=$iso");
+    $photos = json_decode($data, true);
+    return $photos;
+}
 
-   }
-   catch (PDOException $e) {
-      die( $e->getMessage() );
-   }
+
+function getCountries()
+{
+    $data = file_get_contents("http://localhost/Assignment_2/api-countries.php");
+    $countries = json_decode($data, true);
+    return $countries;
+
+} 
+
+function populateCountryList()
+{
+    $countries = getCountries();
+    $photos = getPhotos();
+
+    
+    
+    echo "<select>";
+    echo "<option value=DEF>Select a Country</option>";
+    foreach($countries as $c)
+    {
+        
+        foreach($photos as $p)
+        {
+            
+            
+            if($p['CountryCodeISO'] == $c['ISO'])
+            {
+                
+                echo "<option value=" .$c['ISO']. ">". $c['CountryName'] ."</option>";
+                
+            }
+           
+        }
+
+    }
+    echo "</select>";
+}
+
+function outputCountryPhotos($iso)
+{
+    $photos = getPhotosByCountry($iso);
+    foreach($photos as $p) {
+        outputSinglePhoto($p);
+    }
 }
 
 function outputPhotos()
 {
-    $photos = getAllPhotos();
+    $photos = getPhotos();
     foreach($photos as $p) {
        outputSinglePhoto($p); 
     }
 }
+
+
 
 function outputSinglePhoto($photo)
 {
    echo "<img src='images/square150/". $photo['Path'] . "'>";
    echo "<button type=button>View</button>";
    echo "<button type=button>Add to Favourites</button>";
-}
 
-function filterArea()
-{
-    echo "<select></select>";
-    echo "<select></select>";
 }
 
 
