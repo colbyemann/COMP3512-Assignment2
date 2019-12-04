@@ -37,10 +37,9 @@ function parameterCheck($parameter, $title){
     }
 };
 
-function getPhotos($iso)
+function getPhotos($code)
 {
-    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?citycode=" . $iso);
-    $photos = json_decode($data, true);
+    $photos = getPhotosByCityCode($code);
 
     if(empty($photos))
     {
