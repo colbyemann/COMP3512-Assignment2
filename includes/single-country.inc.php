@@ -20,13 +20,20 @@ foreach($country as $c){
     parameterCheck($c['CurrencyCode'], "Currency: ");
     parameterCheck($c['Population'], "Population: ");
     parameterCheck($c['TopLevelDomain'], "Domain: ");
-    echo "<p>Languages: </p>";
+    echo "<p>Languages: ";
     $lang = getLang($c['Languages']);
     foreach($lang as $l){
-    parameterCheck($l['name'], "");
+        echo $l['name'] . " ";
     };
+    echo "</p>";
 
-    parameterCheck($c['Neighbours'], "Neighbours: ");
+    echo "<p>Neighbours: ";
+    $neighbours = getNeighbours($c['Neighbours']);
+    foreach($neighbours as $n){
+     echo $n['CountryName'] . " ";
+    };
+    echo "</p>";
+
     echo "<p>" . $c['CountryDescription'] . "</p>";
 
 }                  
@@ -43,6 +50,34 @@ function getLang($code)
     $cut = substr($e, 0, 2);
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
     $sql = "SELECT name FROM languages"  . " WHERE iso='$cut'";
+
+    try {
+        $result = runQuery($connection, $sql, null);
+  
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+           $rows[] = $row;
+        }
+        
+     }
+     catch (PDOException $e) {
+        die( $e->getMessage() );
+     }  
+      
+    }
+
+    return $rows;
+}
+
+function getNeighbours($code)
+{
+    $extract =  explode("," , $code);
+    $rows = array();
+
+    foreach($extract as $e)
+    {
+    $cut = substr($e, 0, 2);
+    $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+    $sql = "SELECT CountryName FROM countries"  . " WHERE iso='$cut'";
 
     try {
         $result = runQuery($connection, $sql, null);
