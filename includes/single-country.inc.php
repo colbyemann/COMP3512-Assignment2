@@ -2,13 +2,13 @@
 <?php
 require_once('includes\config.inc.php');
 require_once('includes\db-functions.inc.php');
-
+require_once('includes\db-helper.inc.php');
 
 function getInfo($iso){
 
     //change links
-$data = file_get_contents("http://localhost/Assignment_2/api-countries.php?ISO=" . $iso);
-$country = json_decode($data, true);
+
+$country = getCountriesByISO($iso);
 
 
 echo "<section id='infoSec'>";
@@ -105,9 +105,7 @@ function parameterCheck($parameter, $title){
 
 function getCities($iso)
 {
-    //change links
-    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?ISO=" . $iso);
-    $city = json_decode($data, true);
+    $city = getCitiesByISO($iso);
 
     if(empty($city))
     {
