@@ -55,7 +55,7 @@
       <div id="detailBox">
           <div id="detailBoxInside">
           <section>
-                
+          <?php  getExif($_GET['ImageID']);?>
           </section>
           </div>
           <br>
@@ -65,7 +65,7 @@
           </div>
       </div>
       <div id="mapBox">
-
+            
       </div>
     </div>
 
