@@ -44,10 +44,11 @@
                if (isset($_GET['ISO'])) {
                    outputCountryPhotos($_GET['ISO']);
                    
+                   
                } 
                else
                {
-                    outputPhotos();
+                   outputPhotos();
                }
             }
     
@@ -74,7 +75,7 @@ function getPhotos ()
 
 function getPhotosByCountry($iso)
 {
-    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?=$iso");
+    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?ISO=" . $iso);
     $photos = json_decode($data, true);
     return $photos;
 }
@@ -94,22 +95,24 @@ function populateCountryList()
     $photos = getPhotos();
 
     
-    
-    echo "<select>";
-    echo "<option value=DEF>Select a Country</option>";
+    echo "<select name=ISO>";
+    echo "<option value='DEF'>Select a Country</option>";
     foreach($countries as $c)
     {
+        $newCountry = true;
         
         foreach($photos as $p)
         {
             
-            
-            if($p['CountryCodeISO'] == $c['ISO'])
+            if($p['CountryCodeISO'] == $c['ISO'] && $newCountry == true)
             {
                 
-                echo "<option value=" .$c['ISO']. ">". $c['CountryName'] ."</option>";
+                echo "<option value='".$c['ISO']."'>". $c['CountryName'] ."</option>";
+                $newCountry = false;
                 
             }
+            
+            
            
         }
 
