@@ -60,14 +60,14 @@ function getLocation($iso, $code)
     foreach($country as $c){
         if($c['ISO'] == $iso)
         {
-        echo "<p>".  $c['CountryName'] . ", ";
+        echo "<a href='http://localhost/Assignment_2/single-country.php?ISO=" . $c['ISO']. "'><p>".  $c['CountryName'] . ", </a> " ;
         }
     };
 
     foreach($cities as $c){
         if($c['CityCode'] == $code)
         {
-        echo $c['AsciiName'] . "</p>";
+        echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
         }
     };
 

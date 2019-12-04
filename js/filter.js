@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 x[i].checked = false;
         }
     });
-
+    
     document.querySelector("#buttonhide").addEventListener("click", function (e) {
         if (e.target && e.target.nodeName == "INPUT") {
             document.querySelector("div.countryfilter section").style.display = "none";
@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("div.show").style.display = "none";
         }
     });
-    
     
 
     //Used to filter images on country

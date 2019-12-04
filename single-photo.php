@@ -55,7 +55,7 @@
       <div id="detailBox">
           <div id="detailBoxInside">
           <section>
-
+                
           </section>
           </div>
           <br>
