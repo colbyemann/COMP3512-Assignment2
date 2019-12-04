@@ -1,12 +1,13 @@
 <?php
 require_once('includes\config.inc.php');
 require_once('includes\db-functions.inc.php');
+require_once('includes\db-helper.inc.php');
 
 $photoArray = null;
 
 function getArray(){
-$data = file_get_contents("http://localhost/Assignment_2/api-photos.php");
-$photos = json_decode($data, true);
+
+$photos = getAllPhotos();
 
 $GLOBALS['photoArray'] = $photos;
 
@@ -68,11 +69,8 @@ function getExif($code)
 };
 function getLocation($iso, $code)
 {
-    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=$code");
-    $cities = json_decode($data, true);
-
-    $data2 = file_get_contents("http://localhost/Assignment_2/api-countries.php?ISO=" . $iso);
-    $country = json_decode($data2, true);
+    $cities = getCitiesByCityCode($code);
+    $country = getCountriesByISO($iso);
 
     foreach($country as $c){
         if($c['ISO'] == $iso)

@@ -2,6 +2,7 @@
 
 require_once('includes\config.inc.php');
 require_once('includes\db-functions.inc.php');
+require_once('includes\db-helper.inc.php');
 
 $lat = "";
 $long = "";
@@ -9,9 +10,7 @@ $name = "";
 
 function getInfo($code){
 
-    //change links
-$data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=$code");
-$cities = json_decode($data, true);
+$cities = getCitiesByCityCode($code);
 
 foreach($cities as $c){
     echo "<h4>" . $c['AsciiName'] . "</h4>";

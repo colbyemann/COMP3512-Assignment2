@@ -6,8 +6,6 @@ require_once('includes\db-helper.inc.php');
 
 function getInfo($iso){
 
-    //change links
-
 $country = getCountriesByISO($iso);
 
 
@@ -131,8 +129,8 @@ function getCities($iso)
 
 function getPhotos($iso)
 {
-    $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?ISO=" . $iso);
-    $photos = json_decode($data, true);
+  
+    $photos = getPhotosByISO($iso);
 
     if(empty($photos))
     {
