@@ -74,6 +74,11 @@ function getCities($iso)
     $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?ISO=" . $iso);
     $city = json_decode($data, true);
 
+    if(empty($city))
+    {
+        echo "<p>No Cities Available</p>";
+    }
+    else{
     // Comparison function from https://www.php.net/manual/en/function.uasort.php
     function cmp($a, $b) {
     if ($a['AsciiName'] == $b['AsciiName']) {
@@ -88,7 +93,7 @@ function getCities($iso)
     foreach($city as $c){
         echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
     }
-
+}
 }
 
 function getPhotos($iso)
@@ -96,11 +101,16 @@ function getPhotos($iso)
     $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?ISO=" . $iso);
     $photos = json_decode($data, true);
 
+    if(empty($photos))
+    {
+        echo "<p>No Photos Available</p>";
+    }
+    else{
     foreach($photos as $p)
     {
         echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
     }
-
+    }
 }
 
 ?>

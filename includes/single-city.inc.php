@@ -43,11 +43,16 @@ function getPhotos($iso)
     $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?citycode=" . $iso);
     $photos = json_decode($data, true);
 
+    if(empty($photos))
+    {
+        echo "<p>No Photos Available</p>";
+    }
+    else{
     foreach($photos as $p)
     {
         echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
     }
-
+}
 }
 
 
