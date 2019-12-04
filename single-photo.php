@@ -54,9 +54,9 @@
       </div>
       <div id="detailBox">
           <div id="detailBoxInside">
-          <section>
+          
           <?php  getExif($_GET['ImageID']);?>
-          </section>
+          
           </div>
           <br>
           <h4>Colors:</h4>

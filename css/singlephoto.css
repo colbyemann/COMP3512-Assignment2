@@ -97,42 +97,10 @@ margin-top: 10px;
 
 
 
-ul#countryList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-#detailBox ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
-
-ul#cityList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-ul#countryFilter {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
 
 #photosList img{cursor: pointer;}
 
-ul#cityFilter{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
+
 
 input[radio]{cursor: pointer;}
 
