@@ -22,9 +22,9 @@ h1,h2,h3,h4,p,section{color: #373A43}
 
 
 .pictureFrame{
-display:block;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(2, 1fr);
+display:grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
 grid-column-gap: 30px;
 grid-row-gap: 10px;
 margin-top: 10px;
@@ -32,14 +32,15 @@ margin-top: 10px;
 }
 
 
+
 #picBox
 {
   
-  grid-area: 1 / 1 / 3 / 3;
+  grid-area: 1 / 1 / 2 / 2;
   vertical-align: middle;
 }
 
-#box2{grid-area: 1 / 3 / 3 / 5;
+#box2{grid-area: 1 / 2 / 2 / 3;
 
 
 }
@@ -96,42 +97,10 @@ margin-top: 10px;
 
 
 
-ul#countryList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-#detailBox ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
-
-ul#cityList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-ul#countryFilter {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
 
 #photosList img{cursor: pointer;}
 
-ul#cityFilter{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-}
+
 
 input[radio]{cursor: pointer;}
 

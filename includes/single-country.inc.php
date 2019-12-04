@@ -2,13 +2,13 @@
 <?php
 require_once('includes\config.inc.php');
 require_once('includes\db-functions.inc.php');
-
+require_once('includes\db-helper.inc.php');
 
 function getInfo($iso){
 
     //change links
-$data = file_get_contents("http://localhost/Assignment_2/api-countries.php?ISO=" . $iso);
-$country = json_decode($data, true);
+
+$country = getCountriesByISO($iso);
 
 
 echo "<section id='infoSec'>";
@@ -20,13 +20,20 @@ foreach($country as $c){
     parameterCheck($c['CurrencyCode'], "Currency: ");
     parameterCheck($c['Population'], "Population: ");
     parameterCheck($c['TopLevelDomain'], "Domain: ");
-    echo "<p>Languages: </p>";
+    echo "<p>Languages: ";
     $lang = getLang($c['Languages']);
     foreach($lang as $l){
-    parameterCheck($l['name'], "");
+        echo $l['name'] . " ";
     };
+    echo "</p>";
 
-    parameterCheck($c['Neighbours'], "Neighbours: ");
+    echo "<p>Neighbours: ";
+    $neighbours = getNeighbours($c['Neighbours']);
+    foreach($neighbours as $n){
+     echo $n['CountryName'] . " ";
+    };
+    echo "</p>";
+
     echo "<p>" . $c['CountryDescription'] . "</p>";
 
 }                  
@@ -59,9 +66,34 @@ function getLang($code)
     }
 
     return $rows;
-   
-    
-    
+}
+
+function getNeighbours($code)
+{
+    $extract =  explode("," , $code);
+    $rows = array();
+
+    foreach($extract as $e)
+    {
+    $cut = substr($e, 0, 2);
+    $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
+    $sql = "SELECT CountryName FROM countries"  . " WHERE iso='$cut'";
+
+    try {
+        $result = runQuery($connection, $sql, null);
+  
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+           $rows[] = $row;
+        }
+        
+     }
+     catch (PDOException $e) {
+        die( $e->getMessage() );
+     }  
+      
+    }
+
+    return $rows;
 }
 
 function parameterCheck($parameter, $title){
@@ -73,14 +105,28 @@ function parameterCheck($parameter, $title){
 
 function getCities($iso)
 {
-    //change links
-    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?ISO=" . $iso);
-    $city = json_decode($data, true);
+    $city = getCitiesByISO($iso);
+
+    if(empty($city))
+    {
+        echo "<p>No Cities Available</p>";
+    }
+    else{
+    // Comparison function from https://www.php.net/manual/en/function.uasort.php
+    function cmp($a, $b) {
+    if ($a['AsciiName'] == $b['AsciiName']) {
+        return 0;
+    }
+    return ($a['AsciiName'] < $b['AsciiName']) ? -1 : 1;
+    }
+
+    // Sort and print the resulting array
+    uasort($city, 'cmp');
 
     foreach($city as $c){
         echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
     }
-
+}
 }
 
 function getPhotos($iso)
@@ -88,11 +134,16 @@ function getPhotos($iso)
     $data = file_get_contents("http://localhost/Assignment_2/api-photos.php?ISO=" . $iso);
     $photos = json_decode($data, true);
 
+    if(empty($photos))
+    {
+        echo "<p>No Photos Available</p>";
+    }
+    else{
     foreach($photos as $p)
     {
         echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
     }
-
+    }
 }
 
 ?>

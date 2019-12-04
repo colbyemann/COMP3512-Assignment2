@@ -49,6 +49,23 @@ function getDesc($code)
     };
 };
 
+function getExif($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            $exif = json_decode($p['Exif'], true);
+            
+            echo "Aperture: " .  $exif['aperture'] . "<br>";
+            echo "Exposure Time: " .  $exif['exposure_time'] . "<br>";
+            echo "Focal Length: " .  $exif['focal_length'] . "<br>";
+            echo "ISO: " .  $exif['iso'] . "<br>";
+            echo "Make: " .  $exif['make'] . "<br>";
+            echo "Model: " .  $exif['model'] . "<br>";
+        };
+    };
+};
 function getLocation($iso, $code)
 {
     $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=$code");
@@ -60,16 +77,18 @@ function getLocation($iso, $code)
     foreach($country as $c){
         if($c['ISO'] == $iso)
         {
-        echo "<p>".  $c['CountryName'] . ", ";
+        echo "<a href='http://localhost/Assignment_2/single-country.php?ISO=" . $c['ISO']. "'><p>".  $c['CountryName'] . ", </a> " ;
         }
     };
 
     foreach($cities as $c){
         if($c['CityCode'] == $code)
         {
-        echo $c['AsciiName'] . "</p>";
+        echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
         }
     };
+
+ 
 
     
     

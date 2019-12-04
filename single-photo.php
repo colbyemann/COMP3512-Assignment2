@@ -54,9 +54,9 @@
       </div>
       <div id="detailBox">
           <div id="detailBoxInside">
-          <section>
-
-          </section>
+          
+          <?php  getExif($_GET['ImageID']);?>
+          
           </div>
           <br>
           <h4>Colors:</h4>
@@ -65,7 +65,7 @@
           </div>
       </div>
       <div id="mapBox">
-
+            
       </div>
     </div>
 
@@ -76,6 +76,5 @@
         </main>
         <script src="js/storage.js"></script>
         <script src="js/photo.js"></script>
-        <!-- <script src="js/single-photo.js"></script> -->
     </body>
 </html>

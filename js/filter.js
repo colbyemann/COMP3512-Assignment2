@@ -2,41 +2,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //change links
     const endpoint = 'http://localhost/Assignment_2/api-countries.php';
+    const endpoint2 = 'http://localhost/Assignment_2/api-photos.php';
 
     const allData = [];
+    const allPhotos = [];
+    const checkCountry = [];
     let infoList = null;
-   
-    if(allData.length == 0)
-    {
+
+    if(allData.length == 0) {
         fetch(endpoint)
-        .then((resp) => resp.json())
-        .then(function (data) {
-            allData.push(data);
+        .then(response => response.json())
+        .then(data => {
+            data.forEach( (item) => {
+                allData.push(item);
+            });
+            allData.sort((a, b) => (a.CountryName > b.CountryName) ? 1 : -1);
             document.querySelector("div.countrylist section").style.display = "block";
             populateCountries();
         })
-        .catch(error => console.log(error));
-    };
+        .catch(error => console.error(error));
+    }
 
+    if(allPhotos.length == 0) {
+        fetch(endpoint2)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach( (item) => {
+                allPhotos.push(item);
+            });
+            
+        })
+        .catch(error => console.error(error));
+    }
 
     function populateCountries() {
-        allData[0].forEach((d) => {
-            makeList(d) })
+        allData.forEach((d) => {
+            makeList(d.ISO, d.CountryName) })
         document.getElementById('countryList').innerHTML = infoList;
         infoList = null;
     };
-
-
-
     
-    function makeList(d) {
+    function makeList(iso, name) {
         let a = document.createElement("a");
         //change links
-        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + d.ISO;
+        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + iso;
 
         let li = document.createElement("li");
-        li.appendChild(document.createTextNode(d.CountryName));
-        li.id = d.ISO; 
+        li.appendChild(document.createTextNode(name));
+        li.id = iso; 
 
         a.appendChild(li);
         
@@ -55,18 +68,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#countryFilter").addEventListener('input', function (e) {
         if (e.target && e.target.nodeName == "INPUT") {
             let x = e.target.value;
-           // document.getElementById('text2').value = "";
-            //document.getElementById('text').value = "";
-            filterCountries(x); 
+           
+            if (x == "IM") {
+                filterImages();
+            }
+            else { filterCountries(x); }
         }
     });
 
      //filters based on Continent
      function filterCountries(code) {
-        allData[0].forEach((d) => {
+        allData.forEach((d) => {
             console.log(code);
             if (d.Continent == code) {
-                makeList(d);
+                makeList(d.ISO, d.CountryName);
             }
         }
         )
@@ -84,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 x[i].checked = false;
         }
     });
-
+    
     document.querySelector("#buttonhide").addEventListener("click", function (e) {
         if (e.target && e.target.nodeName == "INPUT") {
             document.querySelector("div.countryfilter section").style.display = "none";
@@ -99,6 +114,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     
+
+    //Used to filter images on country
+    function filterImages() {
+        {
+                allPhotos.forEach((d) => {
+                    
+                    allData.forEach((x) => {
+                        if(x.ISO == d.CountryCodeISO)
+                        {
+                            if(checkCountry.includes(x.ISO) == false){
+                                checkCountry.push(x.ISO);
+                                makeList(x.ISO, x.CountryName);
+                            }
+                           
+                        }
+                    
+                    }
+                    )
+
+                })
+
+                document.getElementById('countryList').innerHTML = infoList;
+                infoList = null;
+    }}
 
 
     function search(input, test) {
