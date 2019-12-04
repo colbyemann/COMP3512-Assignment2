@@ -3,9 +3,11 @@
     session_start();
     $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
     $today = date('Y-m-d h:i:sa');
+    $state = 1;
 
     if (isset($_POST['login'])) {
-        $username = $_POST['email'];
+        // Remove illegal characters from inputed email address
+        $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password = $_POST['password'];
         $sql = $connection->prepare("SELECT UserID, UserName, Password FROM userslogin WHERE UserName=:email");
         $sql->bindValue("email", $username, PDO::PARAM_STR);
@@ -25,11 +27,11 @@
     }
     
     if (isset($_POST['signup'])) {
-        $firstname = $_POST['fname'];
-        $lastname = $_POST['lname'];
-        $city = $_POST['city'];
-        $country = $_POST['country'];
-        $username = $_POST['email'];
+        $firstname = sanitize($_POST['fname']);
+        $lastname = sanitize($_POST['lname']);
+        $city = sanitize($_POST['city']);
+        $country = sanitize($_POST['country']);
+        $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password = $_POST['password'];
         $confirm = $_POST['confirm'];
 
@@ -43,7 +45,7 @@
             echo '<p class="popup error">That email address is already registered!</p>';
         }
 
-        if($_POST["password"]===$_POST["confirm"]) {
+        if($_POST["password"] === $_POST["confirm"]) {
             if ($sql->rowCount() == 0) {
                 $statement = $connection->prepare("INSERT INTO users(FirstName,LastName,City,Country,Email) VALUES (:fname,:lname,:city,:country,:email)");
                 $statement->bindValue("fname", $firstname, PDO::PARAM_STR);
@@ -53,7 +55,7 @@
                 $statement->bindValue("email", $username, PDO::PARAM_STR);
                 $insert = $statement->execute();
 
-                $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,1,'$today')");
+                $sql = $connection->prepare("INSERT INTO userslogin(UserName,Password,State,DateJoined) VALUES (:email,:digest,'$state','$today')");
                 $sql->bindValue("email", $username, PDO::PARAM_STR);
                 $sql->bindValue("digest", $digest, PDO::PARAM_STR);
                 $result = $sql->execute();
@@ -70,6 +72,17 @@
             echo '<p class="popup error">Passwords do not match!</p>';
         }
     }
+
+    //https://www.w3schools.com/php/php_form_validation.asp
+    function sanitize($received) {
+        $received = trim($received);
+        $received = stripslashes($received);
+        $received = htmlspecialchars($received);
+        //https://www.php.net/manual/en/function.preg-replace.php
+        $received = preg_replace("/[^a-zA-Z]/", "", $received);
+        $received = filter_var($received, FILTER_SANITIZE_SPECIAL_CHARS);
+        return $received;
+    };
 
     function buildPopLogin() {
         echo "<div class='popup' id='login-box'>
@@ -94,16 +107,16 @@
                 <h2>Sign up</h2>
 
                 <label for='fname'><b>First Name</b></label>
-                <input type='text' placeholder='Enter first name' name='fname' required>
+                <input type='text' placeholder='Enter first name' name='fname' pattern='[a-zA-Z]{1,}' required>
 
                 <label for='lname'><b>Last Name</b></label>
-                <input type='text' placeholder='Enter last name' name='lname' required>
+                <input type='text' placeholder='Enter last name' name='lname' pattern='[a-zA-Z]{1,}' required>
 
                 <label for='city'><b>City</b></label>
-                <input type='text' placeholder='Enter city' name='city' required>
+                <input type='text' placeholder='Enter city' name='city' pattern='[a-zA-Z]{1,}' required>
 
                 <label for='country'><b>Country</b></label>
-                <input type='text' placeholder='Enter country' name='country' required>
+                <input type='text' placeholder='Enter country' name='country' pattern='[a-zA-Z]{1,}' required>
 
                 <label for='email'><b>Email</b></label>
                 <input type='text' autocomplete='username' placeholder='Enter email' name='email' required>
