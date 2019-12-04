@@ -65,7 +65,7 @@
           </div>
       </div>
       <div id="mapBox">
-            
+      <?php  getmap($_GET['ImageID']);?>
       </div>
     </div>
 

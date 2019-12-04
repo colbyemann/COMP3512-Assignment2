@@ -76,21 +76,37 @@ function getLocation($iso, $code)
         if($c['ISO'] == $iso)
         {
         echo "<a href='http://localhost/Assignment_2/single-country.php?ISO=" . $c['ISO']. "'><p>".  $c['CountryName'] . ", </a> " ;
-        }
+        };
     };
 
     foreach($cities as $c){
         if($c['CityCode'] == $code)
         {
         echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
-        }
+        };
     };
-
- 
-
-    
-    
 
 };
 
+function getMap($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            $cities = getCitiesByCityCode($p['CityCode']);
+
+            foreach($cities as $c){
+                if($c['CityCode'] == $p['CityCode'])
+                {
+                echo "<img width=100% height=300px src='https://maps.googleapis.com/maps/api/staticmap?center=" . $c['Latitude']. "," . $c['Longitude']. "&zoom=12&scale=1&size=500x300&maptype=roadmap&format=png&visual_refresh=true&key=AIzaSyDqyTT1dHib7v_0yGM8qaejN_ighZQ-UiY'>";
+                };
+        
+            
+        };
+    };
+    
+};
+
+};
 ?>

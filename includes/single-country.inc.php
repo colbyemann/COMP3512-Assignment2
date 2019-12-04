@@ -15,7 +15,7 @@ foreach($country as $c){
     echo "<h4>" . $c['CountryName'] . "</h4>";
     parameterCheck($c['Capital'], "Capital: ");
     parameterCheck($c['Area'], "Area: ");
-    parameterCheck($c['CurrencyCode'], "Currency: ");
+    parameterCheck($c['CurrencyName'], "Currency: ");
     parameterCheck($c['Population'], "Population: ");
     parameterCheck($c['TopLevelDomain'], "Domain: ");
     echo "<p>Languages: ";
