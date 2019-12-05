@@ -8,7 +8,6 @@
         <?php buildHead(); ?>
         <title>About</title>
         <link rel="stylesheet" type="text/css" href="css/about.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php

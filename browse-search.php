@@ -9,7 +9,6 @@
         <?php buildHead(); ?>
         <title>Browse/Search</title>
         <link rel="stylesheet" type="text/css" href="css/searchlayout.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php

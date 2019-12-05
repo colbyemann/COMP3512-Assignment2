@@ -9,9 +9,7 @@
 <html lang="en">
         <?php buildHead(); ?>
         <title>Photo</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" type="text/css" href="css/singlephoto.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php

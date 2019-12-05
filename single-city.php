@@ -10,7 +10,6 @@
         <?php buildHead(); ?>
         <title>Cities</title>
         <link rel="stylesheet" type="text/css" href="css/citieslayout.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php

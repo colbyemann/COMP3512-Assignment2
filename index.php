@@ -9,7 +9,6 @@ include("includes/home.inc.php");
         <?php buildHead(); ?>
         <title>Login / Sign Up</title>
         <link rel="stylesheet" type="text/css" href="css/homelayout.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php 
