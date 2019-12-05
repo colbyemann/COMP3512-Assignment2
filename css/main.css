@@ -195,6 +195,15 @@ input[type="button"] {
 	top: 0;
 }
 
+.popup {
+	border: 3px solid var(--divider-color);
+}
+
+.form-box {
+	color: var(--light-primary-color);
+	background-color: var(--default-primary-color);
+}
+
 /* 48em = 768px */
 
 @media (min-width: 68.750em) {
