@@ -28,10 +28,10 @@
                 <p>Fall 2019 Semester</p>
                 <br>
                 <h3>Collaborators:</h3>
-                <p><a href="https://github.com/colbyemann">Colby Emann</a>,
-                <a href="https://github.com/bstuike">Byron Stuike</a>, &
-                <a href="https://github.com/jwola586">Jakub Wolak</a></p>
-                <a href="https://github.com/colbyemann/COMP3512-Assignment2">Assignment Repository</a>
+                <p><a href="https://github.com/colbyemann" target="_blank">Colby Emann</a>,
+                <a href="https://github.com/bstuike" target="_blank">Byron Stuike</a>, &
+                <a href="https://github.com/jwola586" target="_blank">Jakub Wolak</a></p>
+                <a href="https://github.com/colbyemann/COMP3512-Assignment2" target="_blank">Assignment Repository</a>
             </div>
             <?php 
                 buildPopLogin();

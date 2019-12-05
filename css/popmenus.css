@@ -10,7 +10,7 @@
 
 /* Add styles to the form container */
 .form-box {
-  max-height: 90%;
+  max-height: 550px;
   max-width: 300px;
   padding: 10px;
   background-color: white;
