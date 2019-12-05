@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data.forEach( (item) => {
                 allPhotos.push(item);
             });
+            allPhotos.sort((a, b) => (a.CountryCodeISO > b.CountryCodeISO) ? 1 : -1);
             
         })
         .catch(error => console.error(error));
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
            
             if (x == "IM") {
                 filterImages();
+                checkCountry.length = 0;
             }
             else { filterCountries(x); }
         }
@@ -137,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 document.getElementById('countryList').innerHTML = infoList;
                 infoList = null;
+                
     }}
 
 

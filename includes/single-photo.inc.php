@@ -64,9 +64,11 @@ function getExif($code)
             echo "ISO: " .  $exif['iso'] . "<br>";
             echo "Make: " .  $exif['make'] . "<br>";
             echo "Model: " .  $exif['model'] . "<br>";
+            
         };
     };
 };
+
 function getLocation($iso, $code)
 {
     $cities = getCitiesByCityCode($code);
@@ -108,5 +110,20 @@ function getMap($code)
     
 };
 
+};
+
+function getColors($code)
+{
+    foreach($GLOBALS['photoArray'] as $p)
+    {
+        if($p['ImageID'] == $code)
+        {
+            $colors = json_decode($p['Colors'], true);
+            foreach($colors as $color)
+            {
+               echo "<span style=background:$color;></span>";
+            };
+        };
+    };
 };
 ?>

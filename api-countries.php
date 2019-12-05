@@ -15,7 +15,7 @@ else {
 
 function getCountriesSQL() {
    //change this to countires
-   $sql = "SELECT ISO, CountryName, Capital, CityCode, Area, Population, Continent, TopLevelDomain, CurrencyCode, Languages, Neighbours, CountryDescription FROM countries";
+   $sql = "SELECT ISO, CountryName, Capital, CityCode, Area, Population, Continent, TopLevelDomain, CurrencyName, Languages, Neighbours, CountryDescription FROM countries";
    return $sql;
 }
 

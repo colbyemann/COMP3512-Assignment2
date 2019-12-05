@@ -50,18 +50,22 @@
   <input id="picMap" type="button" value="Map">
       <div id="descBox">
           <?php getDesc($_GET['ImageID']); ?>
+          
 
       </div>
       <div id="detailBox">
           <div id="detailBoxInside">
           
           <?php  getExif($_GET['ImageID']);?>
+         
           
           </div>
           <br>
           <h4>Colors:</h4>
           <div id="colors">
-            <section> </section>
+            <section>
+            <?php getColors($_GET['ImageID']); ?>
+        </section>
           </div>
       </div>
       <div id="mapBox">
