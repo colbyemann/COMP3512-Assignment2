@@ -1,6 +1,7 @@
 <?php
     require_once("includes/config.inc.php");
     require_once("includes/db-functions.inc.php");
+	require_once('includes/db-helper.inc.php');
 
 function buildHead()
 {
@@ -16,7 +17,7 @@ function buildHead()
 		<link rel='icon' type='image/x-icon' href='images/airplane.ico'>
 		
 		";
-};
+}
 
 function buildMenu()
 {
@@ -33,7 +34,7 @@ function buildMenu()
 			<li><a href='single-country.php'>Countries/Cities</a></li>
 			
 		";
-};
+}
 
 function buildLogoutMenu()
 {
@@ -41,7 +42,7 @@ function buildLogoutMenu()
 			<li><a href='logout.php'>Logout</a></li>
 		</ul>
 	</header>";
-};
+}
 
 function buildLoginMenu()
 {
@@ -50,6 +51,6 @@ function buildLoginMenu()
 			<li onclick='openSignupForm()'><a href=#>Signup</a></li>
 		</ul>
 	</header>";
-};
+}
 
 ?>

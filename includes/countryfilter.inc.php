@@ -36,6 +36,6 @@ function buildCountryFilter() {
 		</section>
 	</div>
 	";
-};
+}
 
 ?>

@@ -15,7 +15,7 @@ function getCitiesByISO($iso){
 
 function getCitiesByCityCode($code)
 {
-    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=$code");
+    $data = file_get_contents("http://localhost/Assignment_2/api-cities.php?citycode=" . $code);
     return json_decode($data, true);
 };
 

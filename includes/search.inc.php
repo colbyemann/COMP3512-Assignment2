@@ -9,6 +9,6 @@ function buildSearch()
     <div class='box search'>
         <h3>Browse/Search</h3>
     </div>";
-};
+}
 
 ?>
