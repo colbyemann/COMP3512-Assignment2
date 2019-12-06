@@ -20,8 +20,8 @@
                 $photos = getAllPhotos();
 
                 foreach($photos as $p) {
-                    //array_push($stack, $c['CountryName']);
-                    $array[] = $p['Title'];
+                    array_push($array, $p['Title']);
+                    //$array[] = $p['Title'];
                 }
 
                 $pattern = "/^J/";
