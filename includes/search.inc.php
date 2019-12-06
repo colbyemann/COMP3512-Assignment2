@@ -54,17 +54,30 @@ function populateCityList($iso) {
 }
 
 
-function filterTitle()
+function filterTitle($search)
 {
     $photos = getAllPhotos();
-    $userInput = "Lib";
+    
+    
     
     foreach($photos as $p)
     {
-        if(strpos($p['Title'], $userInput))
+        
+        echo "<h1>Working</h1>";
+        
+        if(strpos($p['Title'], $search) !== false)
         {
-            
+            echo "<h1>Hello</h1>";
+            outputSearchPhotos($p['Title']);
         }
+    }
+}
+
+function outputSearchPhotos($title)
+{
+    $photos = getPhotosByTitle($title);
+    foreach($photos as $p) {
+        outputSinglePhoto($p);
     }
 }
 
