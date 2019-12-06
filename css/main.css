@@ -1,3 +1,14 @@
+:root {
+    --dark-primary-color: #455A64;
+    --default-primary-color: #607D8B; 
+    --light-primary-color: #CFD8DC; 
+    --text-primary-color: #FFFFFF; 
+    --accent-color: #9E9E9E; 
+    --primary-text-color: #212121; 
+    --secondary-text-color: #757575; 
+    --divider-color: #BDBDBD;
+}
+
 html {
     box-sizing: border-box;
     font-family: Helvetica, 'Open Sans', "Segoe UI", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
@@ -9,13 +20,23 @@ html {
     box-sizing: inherit;
 }
 
-h1,h2,h3,h4,p,section {color: #373A43}
 
 main {padding-top: 125px;}
 
+body {
+	margin: 0;
+	background-color: var(--light-primary-color);
+}
+
+a {text-decoration: none;}
+a:hover{color: var(--text-primary-color);}
+
+h1,h2,h3 {color: var(--text-primary-color);}
+
+a,h4,p,section {color: var(--light-primary-color);}
+
 .box {
-	background-color: #DCE0E3;
-	color: black;
+	background-color: var(--default-primary-color);
 	border-radius: 5px;
 	padding: 20px;
 	font-size: 150%;
@@ -49,37 +70,26 @@ h3 {margin-top: 2px;}
 input[type="text"] {padding: 5px;}
 
 input[type="button"] {
-    box-shadow: inset 0px 1px 3px 0px #91b8b3;
-    background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-    background-color:#768d87;
+    box-shadow: inset 0px 1px 3px 0px var(--accent-color);
+    background: linear-gradient(to bottom, var(--dark-primary-color) 5%, var(--default-primary-color) 100%);
+    background-color:var(--dark-primary-color);
     border-radius: 5px;
-    border: 1px solid #566963;
+    border: 1px solid var(--divider-color);
     display: inline-block;
     cursor: pointer;
-    color:#ffffff;
+    color: var(--text-primary-color);
     font-size: 15px;
     font-weight: bold;
     padding: 11px 23px;
     text-decoration: none;
-    text-shadow: 0px -1px 0px #2b665e;
-}
-
-/* revised from https://codepen.io/mutedblues/pen/MmPNPG*/
-body {
-	margin: 0;
-	background-color: #f4f4f4;
-}
-
-a {
-	color: #000;
-	text-decoration: none;
+    text-shadow: 0px -1px 0px var(--default-primary-color);
 }
 
 /* header */
 
 .header {
-	background-color: #fff;
-	box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+	background-color: var(--dark-primary-color);
+	box-shadow: 1px 1px 4px 0 var(--accent-color);
 	position: fixed;
 	width: 100%;
 }
@@ -89,18 +99,18 @@ a {
 	padding: 0;
 	list-style: none;
 	overflow: auto;
-	background-color: #fff;
+	background-color: var(--dark-primary-color);
 }
 
 .header li a {
 	display: block;
 	padding: 20px 20px;
-	border-right: 1px solid #f4f4f4;
+	border-left: 1px solid var(--divider-color);
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-	background-color: #f4f4f4;
+	background-color: var(--divider-color);
 }
 
 .header .logo {
@@ -131,7 +141,7 @@ a {
 }
 
 .header .menu-icon .navicon {
-	background: #333;
+	background: var(--text-primary-color);
 	display: block;
 	height: 2px;
 	position: relative;
@@ -141,7 +151,7 @@ a {
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-	background: #333;
+	background: var(--text-primary-color);
 	content: '';
 	display: block;
 	height: 100%;
@@ -186,11 +196,12 @@ a {
 }
 
 .popup {
-	border: 3px solid #f1f1f1;
+	border: 3px solid var(--divider-color);
 }
 
 .form-box {
-	background-color: white;
+	color: var(--light-primary-color);
+	background-color: var(--default-primary-color);
 }
 
 /* 48em = 768px */
@@ -223,7 +234,7 @@ a {
 
 #singlePhoto img,
 #maps img {
-    border: 1px solid #7200ca;
+    border: 1px solid var(--divider-color);
     cursor: default;
 }
 

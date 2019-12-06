@@ -9,9 +9,7 @@
 <html lang="en">
         <?php buildHead(); ?>
         <title>Photo</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" type="text/css" href="css/singlephoto.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php
@@ -50,22 +48,26 @@
   <input id="picMap" type="button" value="Map">
       <div id="descBox">
           <?php getDesc($_GET['ImageID']); ?>
+          
 
       </div>
       <div id="detailBox">
           <div id="detailBoxInside">
           
           <?php  getExif($_GET['ImageID']);?>
+         
           
           </div>
           <br>
           <h4>Colors:</h4>
           <div id="colors">
-            <section> </section>
+            <section>
+            <?php getColors($_GET['ImageID']); ?>
+        </section>
           </div>
       </div>
       <div id="mapBox">
-            
+      <?php  getmap($_GET['ImageID']);?>
       </div>
     </div>
 

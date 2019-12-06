@@ -10,7 +10,6 @@
         <?php buildHead(); ?>
         <title>Countries</title>
         <link rel="stylesheet" type="text/css" href="css/countrieslayout.css">
-        <link rel="stylesheet" type="text/css" href="css/popmenus.css">
     </head>
     <body>
         <?php

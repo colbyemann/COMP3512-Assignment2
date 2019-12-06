@@ -15,6 +15,6 @@ function buildHomePage()
 				<input type='text' id='text' placeholder='Search Box for Photos'>
 		</div>
 	</div>";
-};
+}
 
 ?>

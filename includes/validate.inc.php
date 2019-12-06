@@ -88,7 +88,7 @@
         $received = preg_replace("/[^a-zA-Z]/", "", $received);
         $received = filter_var($received, FILTER_SANITIZE_SPECIAL_CHARS);
         return $received;
-    };
+    }
 
     function buildPopLogin() {
         echo "<div class='popup' id='login-box'>
@@ -105,7 +105,7 @@
                 <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
             </form>
         </div>";
-    };
+    }
 
     function buildPopSignup() {
         echo "<div class='popup' id='signup-box'>
@@ -137,6 +137,6 @@
                 <button type='button' class='btn cancel' onclick='closeForm()'>Cancel</button>
             </form>
         </div>";
-    };
+    }
 
 ?>

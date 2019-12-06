@@ -19,6 +19,6 @@ function buildProfilePage()
             <h3>Images You May Like</h3>
         </div>
     ";
-};
+}
 
 ?>
