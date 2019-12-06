@@ -14,7 +14,7 @@ function buildHead()
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800' rel='stylesheet'>    
 		<link rel='stylesheet' type='text/css' href='css/styles.css'>
         <link rel='stylesheet' type='text/css' href='css/popmenus.css'>
-		<link rel='icon' type='image/x-icon' href='images/airplane.ico'>
+		<link rel='icon' type='image/x-icon' href='images/icons/airplane.ico'>
 		
 		";
 }
@@ -23,7 +23,7 @@ function buildMenu()
 {
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
-		<img class=logo src='images/airplane.png' alt='Airplane' style='width:40px;height:40px;'>
+		<img class=logo src='images/icons/airplane.png' alt='Airplane' style='width:40px;height:40px;'>
 		<a href='#' class='logo'>Assignment 2</a>
 		<input class='menu-btn' type='checkbox' id='menu-btn'/>
 		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>

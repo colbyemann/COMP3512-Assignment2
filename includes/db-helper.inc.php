@@ -36,4 +36,9 @@ function getPhotosByCityCode($code) {
     return json_decode($data, true);
 }
 
+function regExpSearch($pattern, $list) {
+    $matches = preg_match_all($pattern, $list);
+    return $matches;
+}
+
 ?>
