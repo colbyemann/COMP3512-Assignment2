@@ -8,9 +8,9 @@ if(isset($_GET['ISO'])) {
       $result = getPhotosByISO($connection, $_GET['ISO']);
       echo $result;
 }
-else if(isset($_GET['citycode']))
+else if(isset($_GET['CityCode']))
 {
-   $result = getPhotosByCode($connection, $_GET['citycode']);
+   $result = getPhotosByCode($connection, $_GET['CityCode']);
       echo $result;
 }
 else {
