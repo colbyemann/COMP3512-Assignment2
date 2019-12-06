@@ -53,6 +53,21 @@ function populateCityList($iso) {
     echo "</select>";
 }
 
+
+function filterTitle()
+{
+    $photos = getAllPhotos();
+    $userInput = "Lib";
+    
+    foreach($photos as $p)
+    {
+        if(strpos($p['Title'], $userInput))
+        {
+            
+        }
+    }
+}
+
 function outputCountryPhotos($iso) {
     $photos = getPhotosByISO($iso);
     foreach($photos as $p) {
