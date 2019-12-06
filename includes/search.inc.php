@@ -1,5 +1,8 @@
 <?php
 
+$favouritesArray = array();
+$GLOBALS['favouritesArray'];
+
 function buildSearch()
 {
     echo "<div class='box filter'>

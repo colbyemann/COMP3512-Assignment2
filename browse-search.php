@@ -71,12 +71,17 @@
             }
             ?>
             
+            <?php 
             
             
-            
-            
-            
-            
+            if (isset($_GET['CityCode'])) {
+                array_push($GLOBALS['favouritesArray'], $_GET['CityCode']);
+                $_SESSION['favPhoto'] = $GLOBALS['favouritesArray'];
+                //echo"<script type='text/javascript'>alert('Photo added to Favourites');</script>";
+                //Dump it out for example purposes.
+                var_dump($GLOBALS['favouritesArray']);
+                }
+            ?>
         </main>
         <script src="js/pop.js"></script>
     </body>
