@@ -4,8 +4,10 @@ require_once('../includes/db-functions.inc.php');
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
+
 if(isset($_GET['ISO'])) {
-   $result = getCountriesByISO($connection, $_GET['ISO']);
+   $received = preg_replace("/[^a-zA-Z]/", "", $_GET['ISO']);
+   $result = getCountriesByISO($connection, $received);
    echo $result;
 }
 else {

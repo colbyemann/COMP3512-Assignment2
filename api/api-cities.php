@@ -4,13 +4,16 @@ require_once('../includes/db-functions.inc.php');
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
+
 if(isset($_GET['ISO'])) {
-      $result = getCitiesByISO($connection, $_GET['ISO']);
+      $received = preg_replace("/[^a-zA-Z]/", "", $_GET['ISO']);
+      $result = getCitiesByISO($connection, $received);
       echo $result;
 }
 else if(isset($_GET['CityCode']))
 {
-   $result = getCitiesByCode($connection, $_GET['CityCode']);
+   $received = filter_var($_GET['CityCode'], FILTER_SANITIZE_NUMBER_INT);
+   $result = getCitiesByCode($connection, $received);
       echo $result;
 }
 else {
