@@ -45,7 +45,7 @@
                 echo '<p class="popup error">That email address is already registered!</p>';
             }
 
-            $digest = password_hash($password, PASSWORD_BCRYPT);
+            $digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
             if($_POST["password"] === $_POST["confirm"]) {
                 if ($sql->rowCount() == 0) {
