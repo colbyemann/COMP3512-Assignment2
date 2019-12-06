@@ -19,6 +19,8 @@
         } else {
             if (password_verify($password, $result['Password'])) {
                 $_SESSION['logged_in'] = true;
+                $_SESSION['sessionUser'] = 'UserID';
+                $_SESSION['favPhoto'] = array();
                 header('Location: profile.php');
             } else {
                 echo '<p class="popup error">Email or password is incorrect!</p>';
