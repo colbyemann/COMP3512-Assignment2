@@ -28,10 +28,14 @@
                 buildPopLogin();
                 buildPopSignup();
             ?>
+            
+            <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+                <input type='text' id='text' name='Title'><br>
+                <button class="button" type="submit"> Search Text </button>
                 
+            </form>
             
                 <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                    <input type='text' id='text' value=''><br>
                 <button class="button" type="submit"> Filter </button>   
                     
                 <?php
@@ -60,6 +64,10 @@
                }
                 else if (isset($_GET['CityCode'])) {
                    outputCityPhotos($_GET['CityCode']);
+                }
+                else if (isset($_GET['Title']))
+                {
+                    filterTitle($_GET['Title']);
                 }
                 else {
                     outputPhotos();
