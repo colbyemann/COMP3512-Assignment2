@@ -36,6 +36,11 @@ function getPhotosByCityCode($code) {
     return json_decode($data, true);
 }
 
+function getPhotosByTitle($title) {
+    $data = file_get_contents("http://localhost/Assignment_2/api/api-photos.php?Title=" . $title);
+    return json_decode($data, true);
+}
+
 function regExpSearch($pattern, $list) {
     $matches = preg_match_all($pattern, $list);
     return $matches;
