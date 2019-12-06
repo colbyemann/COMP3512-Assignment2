@@ -1,7 +1,7 @@
 <?php
-    require_once("includes/config.inc.php");
-    require_once("includes/db-functions.inc.php");
-	require_once('includes/db-helper.inc.php');
+    require_once("config.inc.php");
+    require_once("db-functions.inc.php");
+	require_once('db-helper.inc.php');
 
 function buildHead()
 {

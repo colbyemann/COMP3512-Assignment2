@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     //change links
-    const endpoint = 'http://localhost/Assignment_2/api-countries.php';
-    const endpoint2 = 'http://localhost/Assignment_2/api-photos.php';
+    const endpoint = 'http://localhost/Assignment_2/api/api-countries.php';
+    const endpoint2 = 'http://localhost/Assignment_2/api/api-photos.php';
 
     const allData = [];
     const allPhotos = [];

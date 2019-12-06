@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // the URLs for external data
-    const countryURL = 'http://localhost/Assignment_2/api-countries.php';
-    const cityURL = 'http://localhost/Assignment_2/api-cities.php';
-    const photoURL = 'http://localhost/Assignment_2/api-photos.php';
-    const languageURL = 'http://localhost/Assignment_2/api-languages.php';
+    const countryURL = 'http://localhost/Assignment_2/api/api-countries.php';
+    const cityURL = 'http://localhost/Assignment_2/api/api-cities.php';
+    const photoURL = 'http://localhost/Assignment_2/api/api-photos.php';
+    const languageURL = 'http://localhost/Assignment_2/api/api-languages.php';
     
     // check local storage to see if data exists
     const countries = retrieveStorage('countries');
