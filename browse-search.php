@@ -28,13 +28,23 @@
                 buildPopLogin();
                 buildPopSignup();
             ?>
+                
+            
                 <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+                    <input type='text' id='text' value=''><br>
                 <button class="button" type="submit"> Filter </button>   
+                    
                 <?php
                     populateCountryList();
                 ?>
                 </form>
             <?php
+            
+            
+            
+            
+            
+            
             if($_SERVER["REQUEST_METHOD"] == "GET") {
                if (isset($_GET['ISO'])) {
                    outputCountryPhotos($_GET['ISO']);
@@ -55,7 +65,18 @@
                     outputPhotos();
                 }
             }
+            else if ($_POST['action'] = "filterTitle")
+            {
+                filterTitle();
+            }
             ?>
+            
+            
+            
+            
+            
+            
+            
         </main>
         <script src="js/pop.js"></script>
     </body>
