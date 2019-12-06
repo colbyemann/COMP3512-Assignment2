@@ -12,7 +12,7 @@ function buildHead()
 		<meta name='description' content='COMP 3512 Assignment #2: Multi-Page App'>
 
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800' rel='stylesheet'>    
-		<link rel='stylesheet' type='text/css' href='css/styles.css'>
+		<link rel='stylesheet' type='text/css' href='css/main.css'>
         <link rel='stylesheet' type='text/css' href='css/popmenus.css'>
 		<link rel='icon' type='image/x-icon' href='images/icons/airplane.ico'>
 		
