@@ -47,8 +47,8 @@ function buildLogoutMenu()
 function buildLoginMenu()
 {
 	echo "	<li><a href='favourites.php'>Favs</a></li>
-			<li onclick='openLoginForm()'><a href=#>Login</a></li>
-			<li onclick='openSignupForm()'><a href=#>Signup</a></li>
+			<li onclick='openLoginForm()'><a href='#'>Login</a></li>
+			<li onclick='openSignupForm()'><a href='#'>Signup</a></li>
 		</ul>
 	</header>";
 }
