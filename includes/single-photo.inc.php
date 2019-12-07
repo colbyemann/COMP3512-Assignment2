@@ -10,7 +10,21 @@ function getArray() {
 function getImage($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
-            echo "<img src='images/medium800/". $p['Path'] . "'></img>";
+        
+        $url = "http://localhost/Assignment_2/images/medium800/" . $p['Path'];
+        echo "<div id='bigImage' style='background-image: url($url)'>";
+        echo "<div id='texts'>";
+        echo "<section>";
+        echo $p['ActualCreator'] . "<br><br>";
+        echo getExif($code);
+        echo "</section>";
+        echo "<br>";
+        echo "<div id='colors2'>";
+        echo  "<section>";
+        echo    getColors($code);
+        echo  "</section>";
+        echo   "</div></div></div>";
+     
         }
     }
 }

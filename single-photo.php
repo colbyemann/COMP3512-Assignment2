@@ -24,9 +24,9 @@
         <main>
             <div class="box pictureFrame">
             <div id="picBox">
-            <div id="bigImage">
+            
                 <?php getImage($_GET['ImageID']); ?>
-            </div>
+            
             </div>
 
             <div id="box2">

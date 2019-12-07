@@ -13,14 +13,13 @@ function getInfo($iso) {
         parameterCheck($c['CurrencyName'], "Currency: ");
         parameterCheck($c['Population'], "Population: ");
         parameterCheck($c['TopLevelDomain'], "Domain: ");
-        echo "<p>Languages: ";
+        
         $lang = getLang($c['Languages']);
         foreach($lang as $l){
             echo $l['name'] . " ";
         };
         echo "</p>";
 
-        echo "<p>Neighbours: ";
         $neighbours = getNeighbours($c['Neighbours']);
         foreach($neighbours as $n){
             echo $n['CountryName'] . " ";

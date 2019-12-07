@@ -5,12 +5,14 @@ require_once('../includes/db-functions.inc.php');
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
 if(isset($_GET['ISO'])) {
-      $result = getPhotosByISO($connection, $_GET['ISO']);
+      $received = preg_replace("/[^a-zA-Z]/", "", $_GET['ISO']);
+      $result = getPhotosByISO($connection, $received);
       echo $result;
 }
 else if(isset($_GET['CityCode']))
 {
-   $result = getPhotosByCode($connection, $_GET['CityCode']);
+   $received = filter_var($_GET['CityCode'], FILTER_SANITIZE_NUMBER_INT);
+   $result = getPhotosByCode($connection, $received);
       echo $result;
 }
 else if (isset($_GET['Title']))
