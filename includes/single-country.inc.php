@@ -109,7 +109,7 @@ function getCities($iso) {
         uasort($city, 'cmp');
 
         foreach($city as $c) {
-            echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
+            echo "<a href='" . $GLOBALS['singleCityPage'] . "?citycode=". $c['CityCode']  ."'><li>" . $c['AsciiName'] ."</li></a>";
         }
     }
 }
@@ -124,7 +124,7 @@ function getPhotos($iso) {
     else {
         foreach($photos as $p)
         {
-            echo "<a href='http://localhost/Assignment_2/single-photo.php?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
+            echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
         }
     }
 }

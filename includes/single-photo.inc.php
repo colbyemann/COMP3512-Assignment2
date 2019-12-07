@@ -11,7 +11,7 @@ function getImage($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
         
-        $url = "http://localhost/Assignment_2/images/medium800/" . $p['Path'];
+        $url = "images/medium800/" . $p['Path'];
         echo "<div id='bigImage' style='background-image: url($url)'>";
         echo "<div id='texts'>";
         echo "<section>";
@@ -70,13 +70,13 @@ function getLocation($iso, $code) {
 
     foreach($country as $c) {
         if($c['ISO'] == $iso) {
-        echo "<a href='http://localhost/Assignment_2/single-country.php?ISO=" . $c['ISO']. "'><p>".  $c['CountryName'] . ", </a> " ;
+        echo "<a href='" . $GLOBALS['singleCountryPage'] . "?ISO=" . $c['ISO']. "'><p>".  $c['CountryName'] . ", </a> " ;
         }
     }
 
     foreach($cities as $c) {
         if($c['CityCode'] == $code) {
-        echo "<a href='http://localhost/Assignment_2/single-city.php?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
+        echo "<a href='" . $GLOBALS['singleCityPage'] . "?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
         }
     }
 }
