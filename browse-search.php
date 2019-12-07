@@ -65,11 +65,10 @@
             }
 
             if (isset($_GET['ImageID'])) {
-                array_push($GLOBALS['favouritesArray'], $_GET['ImageID']);
-                $_SESSION['favPhoto'] = $GLOBALS['favouritesArray'];
-                echo"<script type='text/javascript'>alert('Photo added to Favourites');</script>";
+                array_push($_SESSION['favPhoto'], $_GET['ImageID']);
+                //echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
                 //Dump it out for example purposes.
-                var_dump($GLOBALS['favouritesArray']);
+                //var_dump($_SESSION['favPhoto']);
             }
             ?>
         </main>
