@@ -32,13 +32,13 @@
                 <section id="infoSec">
                     <?php
 
-                if(!isset($_GET['citycode']))
+                if(!isset($_GET['CityCode']))
                 {
                     echo "<h4 id='titleInfo'>Select Country for Information</h4>";
                 }
                 else
                 {
-                    getInfo($_GET['citycode']);
+                    getInfo($_GET['CityCode']);
                 }
                 ?>
                     
@@ -53,7 +53,7 @@
             <div class="box travelphotos">
                 <h3>Travel Photos</h3>
             <picture id="photosList"> 
-                <?php getPhotos($_GET['citycode']) ?>
+                <?php getPhotos($_GET['CityCode']) ?>
             </picture></div>
             <?php 
                 buildPopLogin();

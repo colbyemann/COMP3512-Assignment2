@@ -34,7 +34,7 @@ function getPhotos($code) {
     }
     else {
         foreach($photos as $p) {
-            echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></img></a>";
+            echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID']  ."'><img src='images/square150/". $p['Path'] . "'></a>";
         }
     }
 }

@@ -76,7 +76,7 @@ function getLocation($iso, $code) {
 
     foreach($cities as $c) {
         if($c['CityCode'] == $code) {
-        echo "<a href='" . $GLOBALS['singleCityPage'] . "?citycode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
+        echo "<a href='" . $GLOBALS['singleCityPage'] . "?CityCode=". $c['CityCode']. "'>". $c['AsciiName'] . "</p></a>";
         }
     }
 }

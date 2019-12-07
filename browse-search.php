@@ -32,67 +32,45 @@
             <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
                 <input type='text' id='text' name='Title'><br>
                 <button class="button" type="submit"> Search Text </button>
-                
             </form>
             
-                <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+            <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
                 <button class="button" type="submit"> Filter </button>   
-                    
-                <?php
-                    populateCountryList();
-                ?>
-                </form>
+                <?php populateCountryList(); ?>
+            </form>
+
             <?php
-            
-            
-            
-            
-            
-            
-            if($_SERVER["REQUEST_METHOD"] == "GET") {
-               if (isset($_GET['ISO'])) {
-                   outputCountryPhotos($_GET['ISO']);
+                if($_SERVER["REQUEST_METHOD"] == "GET") {
+                    if (isset($_GET['ISO'])) {
+                        outputCountryPhotos($_GET['ISO']);
             ?>
-                <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                    <button class="button" type="submit"> Filter </button>   
-                    <?php
-                    populateCityList($_GET['ISO']);
-                    ?>
-                </form>
-                    
+                    <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+                        <button class="button" type="submit"> Filter </button>   
+                        <?php populateCityList($_GET['ISO']); ?>
+                    </form>
             <?php
-               }
-                else if (isset($_GET['CityCode'])) {
-                   outputCityPhotos($_GET['CityCode']);
-                }
-                else if (isset($_GET['Title']))
-                {
-                    if(! empty($_GET['Title']))
-                    {
-                        filterTitle($_GET['Title']);
                     }
-                    
-                }
-                else {
-                    outputPhotos();
-                }
+                    else if (isset($_GET['CityCode'])) {
+                    outputCityPhotos($_GET['CityCode']);
+                    }
+                    else if (isset($_GET['Title'])) {
+                        if(! empty($_GET['Title'])) {
+                            filterTitle($_GET['Title']);
+                        }
+                    }
+                    else {outputPhotos();}
             }
-            else if ($_POST['action'] = "filterTitle")
-            {
+            else if ($_POST['action'] = "filterTitle") {
                 filterTitle();
             }
-            ?>
-            
-            <?php 
-            
-            
-            if (isset($_GET['CityCode'])) {
-                array_push($GLOBALS['favouritesArray'], $_GET['CityCode']);
+
+            if (isset($_GET['ImageID'])) {
+                array_push($GLOBALS['favouritesArray'], $_GET['ImageID']);
                 $_SESSION['favPhoto'] = $GLOBALS['favouritesArray'];
-                //echo"<script type='text/javascript'>alert('Photo added to Favourites');</script>";
+                echo"<script type='text/javascript'>alert('Photo added to Favourites');</script>";
                 //Dump it out for example purposes.
                 var_dump($GLOBALS['favouritesArray']);
-                }
+            }
             ?>
         </main>
         <script src="js/pop.js"></script>

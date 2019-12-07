@@ -105,7 +105,7 @@ function outputPhotos() {
 function outputSinglePhoto($photo) {
     echo "<img src='images/square150/". $photo['Path'] . "'>";
     //echo "<p>" . $photo['Title'] . "</p>";
-    echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></img></a>";
+    echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
     echo "<button type=button>Add to Favourites</button>";
 }
 
