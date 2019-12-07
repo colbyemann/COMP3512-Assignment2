@@ -60,15 +60,10 @@ function populateCityList($iso) {
 function filterTitle($search)
 {
     $photos = getAllPhotos();
-    
-    
-    
     foreach($photos as $p)
     {
         
-        echo "<h1>Working</h1>";
-        
-        if(strpos($p['Title'], $search) !== false)
+        if(strpos(strtolower($p['Title']), strtolower($search)) !== false)
         {
             echo "<h1>Hello</h1>";
             outputSearchPhotos($p['Title']);

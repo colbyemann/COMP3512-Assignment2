@@ -37,7 +37,9 @@ function getPhotosByCityCode($code) {
 }
 
 function getPhotosByTitle($title) {
-    $data = file_get_contents("http://localhost/Assignment_2/api/api-photos.php?Title=" . $title);
+    $url = "http://localhost/Assignment_2/api/api-photos.php?Title=" . $title;
+    $url = preg_replace("/ /", "%20", $url);
+    $data = file_get_contents($url);
     return json_decode($data, true);
 }
 
