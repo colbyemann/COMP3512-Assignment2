@@ -16,20 +16,8 @@
         <main class="container">            
             <div class='box'>
                 <?php
-                $array = array();
-                $photos = getAllPhotos();
-
-                foreach($photos as $p) {
-                    array_push($array, $p['Title']);
-                    //$array[] = $p['Title'];
-                }
-
-                $pattern = "/^J/";
-                $matches = preg_grep($pattern, $array);
-                 
-                // Loop through matches array and display matched names
-                foreach($matches as $match){
-                    echo $match . "<br>";
+                foreach($_SESSION['favPhoto'] as $p) {
+                    echo "<img src='images/square150/" . $p . "'>";
                 }
                 ?>
             </div>

@@ -107,7 +107,7 @@ function outputSinglePhoto($photo) {
     //echo "<p>" . $photo['Title'] . "</p>";
     echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
     if(isset($_SESSION['logged_in'])) {
-        echo "<a href='" . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>Add to Favourites</button></a>";
+        echo "<a href='" . "?Path=" . $photo['Path'] . "'><button type=button action=>Add to Favourites</button></a>";
     }
 }
 
