@@ -15,17 +15,24 @@ function getInfo($iso) {
         parameterCheck($c['TopLevelDomain'], "Domain: ");
         
         $lang = getLang($c['Languages']);
+        if($lang != null)
+        {
+            echo "<p>Languages: ";
         foreach($lang as $l){
             echo $l['name'] . " ";
         };
         echo "</p>";
-
+        };
+        
         $neighbours = getNeighbours($c['Neighbours']);
+        if($neighbours != null)
+        {
+            echo "<p>Neighbours: ";
         foreach($neighbours as $n){
             echo $n['CountryName'] . " ";
         };
         echo "</p>";
-
+        };
         echo "<p>" . $c['CountryDescription'] . "</p>";
 
     }                  

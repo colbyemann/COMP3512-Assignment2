@@ -120,11 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
     //Used to filter images on country
     function filterImages() {
         {
-                allPhotos.forEach((d) => {
+                allData.forEach((x) => {
                     
-                    allData.forEach((x) => {
+                    allPhotos.forEach((d) => {
                         if(x.ISO == d.CountryCodeISO)
                         {
+                            
                             if(checkCountry.includes(x.ISO) == false){
                                 checkCountry.push(x.ISO);
                                 makeList(x.ISO, x.CountryName);
