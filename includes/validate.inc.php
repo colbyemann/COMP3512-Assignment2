@@ -66,6 +66,8 @@
             
                     if ($result) {
                         $_SESSION['logged_in'] = true;
+                        $_SESSION['sessionUser'] = 'UserID';
+                        $_SESSION['favPhoto'] = array();
                         header('Location: profile.php');
                     } else {
                         echo '<p class="popup error">I&lsaquo;m sorry, something went wrong!</p>';
