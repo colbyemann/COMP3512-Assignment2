@@ -59,6 +59,7 @@ function populateCityList($iso) {
 
 function filterTitle($search)
 {
+    
     $photos = getAllPhotos();
     foreach($photos as $p)
     {
@@ -69,6 +70,7 @@ function filterTitle($search)
             outputSearchPhotos($p['Title']);
         }
     }
+
 }
 
 function outputSearchPhotos($title)

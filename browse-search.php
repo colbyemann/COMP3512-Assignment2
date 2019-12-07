@@ -67,7 +67,11 @@
                 }
                 else if (isset($_GET['Title']))
                 {
-                    filterTitle($_GET['Title']);
+                    if(! empty($_GET['Title']))
+                    {
+                        filterTitle($_GET['Title']);
+                    }
+                    
                 }
                 else {
                     outputPhotos();
