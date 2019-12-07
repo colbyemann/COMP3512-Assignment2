@@ -89,7 +89,7 @@ div.info section {
 
 div.header {text-align: center;}
 
-h4 {margin-bottom: 2px; margin-top: 2px;}
+h4 {margin-bottom: 2px; margin-top: 2px; color: var(--primary-text-color);}
 h3 {margin-top: 2px;}
 
 #map {
@@ -113,6 +113,8 @@ h3 {margin-top: 2px;}
 }
 
 #descBox{display: block; overflow: auto; padding: 20px; height: 250px;}
+
+#descBox p {color: var(--primary-text-color);}
 
 #detailBox{display: none; overflow: auto; padding: 20px; height: 250px;}
 
