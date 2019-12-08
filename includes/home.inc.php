@@ -12,7 +12,10 @@ function buildHomePage()
 				<input id='join' type='button' onclick='openSignupForm()' value='JOIN'>
 		</div><br>
 		<div class='searchbar'>
-				<input type='text' id='text' placeholder='Search Box for Photos'>
+        <form method='get' action='browse-search.php?'>
+				<input type='text' id='text' name='Title' placeholder='Search Box for Photos'>
+                <button class='button' type='submit'> Search Text </button>
+        </form>
 		</div>
 	</div>";
 }
