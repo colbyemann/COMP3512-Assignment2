@@ -4,18 +4,8 @@ function buildProfilePage()
 {
     echo "
         <div class='box userinfo'>
-            <h3>User Info</h3>";
-
-            $user = getUser($_SESSION['sessionUser']);
-            
-            foreach($user as $u)
-            {
-               echo "<h4>Hello, " . $u['FirstName'] . " ". $u['LastName']. "</h4>";
-               echo "<h4>" . $u['City'] . ", " . $u['Country'] . "</h4>";
-               echo "<h4>" . $u['Email'] . "</h4>";
-            }
-
-     echo   "</div>
+            <h3>User Info</h3>
+        </div>
 
         <div class='box favs'>
             <h3>Favourited Images</h3>";
@@ -25,9 +15,12 @@ function buildProfilePage()
         echo "
         </div>
 
+        <form method='get' action='browse-search.php?'>  
         <div class='box search'>
-            <input type=text id=text placeholder='Search Box for Photos'>
+            <input type=text id=text name=Title placeholder='Search Box for Photos'>
+            <button class='button' type='submit'> Search Text </button>
         </div>
+        </form>
 
         <div class='box like'>
             <h3>Images You May Like</h3>";
@@ -54,7 +47,7 @@ function buildProfilePage()
                         if($suggestedPhotos < 12)
                         {
                             echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID'] . "'><img src='images/square150/" . $p['Path'] . "'></a>";
-                        
+                            
                             $suggestedPhotos = $suggestedPhotos + 1;
                         }
                 }
