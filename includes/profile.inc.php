@@ -20,9 +20,38 @@ function buildProfilePage()
         </div>
 
         <div class='box like'>
-            <h3>Images You May Like</h3>
-        </div>
-    ";
+            <h3>Images You May Like</h3>";
+    
+            $photos = getAllPhotos();
+            $suggestedPhotos = 0;
+            
+            foreach($_SESSION['favPhoto'] as $f) {
+                
+                foreach($photos as $p)
+                {
+                    if($f['CountryCodeISO'] == $p['CountryCodeISO'] && $suggestedPhotos < 12 && $f['ImageID'] != $p['ImageID'])
+                    {
+                        echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID'] . "'><img src='images/square150/" . $p['Path'] . "'></a>";
+                        
+                        $suggestedPhotos = $suggestedPhotos + 1;
+                        
+                    }
+                }
+                    
+                }
+                    foreach($photos as $p) {
+                        
+                        if($suggestedPhotos < 12)
+                        {
+                            echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID'] . "'><img src='images/square150/" . $p['Path'] . "'></a>";
+                            
+                            $suggestedPhotos = $suggestedPhotos + 1;
+                        }
+                }
+                
+        
+       echo "</div>";
+
 }
 
 ?>
