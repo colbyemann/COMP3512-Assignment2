@@ -91,23 +91,34 @@ function outputPhotos() {
 function outputSinglePhoto($photo) {
     echo "<figure><img src='images/square150/". $photo['Path'] . "'>
     <figcaption>" . $photo['Title'] . "</figcaption></figure>
-    <a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
+    <a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><input id='favs' type='button' value='View'></a>";
     showButton($photo);
 }
 
 function showButton($photo) {
     if(isset($_SESSION['logged_in'])) {
         if (searchArray($photo['ImageID'], $_SESSION['favPhoto'])) {
+            echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;ContinentCode=" . $photo['ContinentCode'] . "'>
+            <input id='favs' type='button' value='Remove from Favourites'></a>";
         }
-        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "'><button type=button action=>Add to Favourites</button></a>";}
+        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "'><input id='favs' type='button' value='Add to Favourites'></a>";}
     }
 }
 
-function pushSessionArray() {
+function addSessionElement() {
     if (isset($_GET['ImageID'])) {
         $data = ['ImageID' => $_GET['ImageID'],'Path' => $_GET['Path']];
         array_push($_SESSION['favPhoto'], $data);
         echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
+    }
+}
+
+function removeSessionElement($id, $path) {
+    $data = ['ImageID' => $id, 'Path' => $path];
+    $index = array_search($data, $_SESSION['favPhoto']);
+    if($index !== false) {
+        unset($_SESSION['favPhoto'][$index]);
+        echo "<script type='text/javascript'>alert('Photo removed from Favourites');</script>";
     }
 }
 

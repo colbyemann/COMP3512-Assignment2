@@ -111,14 +111,20 @@ function getButton() {
         foreach($GLOBALS['photoArray'] as $p) {
             if($p['ImageID'] == $_GET['ImageID']) {
                 $path = $p['Path'];
+                $ac = $p['ActualCreator'];
+                $cc = $p['ContinentCode'];
             }
         }
         if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {
+            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;ContinentCode=" . $cc . "'>
+            <input id='favs' type='button' value='Remove from Favourites'></a>";
         }
-        else {echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "'>
+        else {
+            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;ActualCreator=" . $ac . "'>
             <input id='favs' type='button' value='Add to Favourites'></a>";
         }
-        if(isset($_SESSION[$_GET['ImageID']])) {pushSessionArray();}
+        if(isset($_GET['ActualCreator'])) {addSessionElement();}
+        if(isset($_GET['ContinentCode'])) {removeSessionElement($_GET['ImageID'], $path);}
     }
 }
 ?>

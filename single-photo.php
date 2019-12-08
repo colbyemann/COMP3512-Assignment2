@@ -74,5 +74,6 @@
         </main>
         <script src="js/storage.js"></script>
         <script src="js/photo.js"></script>
+        <script src="js/pop.js"></script>
     </body>
 </html>

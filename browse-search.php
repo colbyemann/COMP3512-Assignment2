@@ -63,7 +63,7 @@
             else if ($_POST['action'] = "filterTitle") {
                 filterTitle();
             }
-            pushSessionArray();
+            addSessionElement();
             ?>
         </main>
         <script src="js/pop.js"></script>
