@@ -15,16 +15,10 @@
         <?php 
             buildMenu();
             buildLogoutMenu();
-<<<<<<< Updated upstream
-        echo "<main class='container'>";
-            buildProfilePage();
-        ?>
-        </main>   
-=======
             echo "<main class='container'>";
             buildProfilePage();
         ?>
         </main>
->>>>>>> Stashed changes
+
     </body>
 </html>
