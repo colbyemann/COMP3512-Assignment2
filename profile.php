@@ -14,7 +14,9 @@
         <?php 
             buildMenu();
             buildLogoutMenu();
+        echo "<main class='container'>";
             buildProfilePage();
         ?>
+        </main>   
     </body>
 </html>
