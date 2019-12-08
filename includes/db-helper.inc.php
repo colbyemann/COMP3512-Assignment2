@@ -58,7 +58,7 @@ function regExpSearch($pattern, $list) {
 }
 
 function getUser($code) {
-    $data = file_get_contents($GLOBALS['apiPhotos'] . "?UserID=" . $code);
+    $data = file_get_contents($GLOBALS['apiPhotos'] . "?Email=" . $code);
     return json_decode($data, true);
 }
 

@@ -20,9 +20,9 @@ else if (isset($_GET['Title']))
     $result = getPhotosByTitle($connection, $_GET['Title']);
     echo $result;
 }
-else if (isset($_GET['UserID']))
+else if (isset($_GET['Email']))
 {
-    $result = getUser($connection, $_GET['UserID']);
+    $result = getUser($connection, $_GET['Email']);
     echo $result;
 }
 else {
@@ -93,7 +93,7 @@ function getPhotosByTitle($connection, $title) {
 function getUser($connection, $userID)
 {
    $sql = "SELECT FirstName,LastName,City,Country,Email  FROM users";
-   $sql = $sql . " WHERE UserID='$userID'";
+   $sql = $sql . " WHERE Email='$userID'";
     
    $result = runQuery($connection, $sql, null);
    $rows = array();

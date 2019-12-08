@@ -19,7 +19,7 @@
         } else {
             if (password_verify($password, $result['Password'])) {
                 $_SESSION['logged_in'] = true;
-                $_SESSION['sessionUser'] = $result['UserID'];
+                $_SESSION['sessionUser'] = $result['UserName'];
                 $_SESSION['favPhoto'] = array();
                 header('Location: profile.php');
             } else {
