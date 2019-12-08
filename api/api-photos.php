@@ -20,6 +20,11 @@ else if (isset($_GET['Title']))
     $result = getPhotosByTitle($connection, $_GET['Title']);
     echo $result;
 }
+else if (isset($_GET['UserID']))
+{
+    $result = getUser($connection, $_GET['UserID']);
+    echo $result;
+}
 else {
    $result = getAllPhotos($connection);
    echo $result;
@@ -75,6 +80,20 @@ function getPhotosByCode($connection, $code) {
 function getPhotosByTitle($connection, $title) {
    $sql = getPhotosSQL();
    $sql = $sql . " WHERE Title='$title'";
+    
+   $result = runQuery($connection, $sql, null);
+   $rows = array();
+      
+   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $rows[] = $row;
+   }
+   return json_encode($rows);
+}
+
+function getUser($connection, $userID)
+{
+   $sql = "SELECT FirstName,LastName,City,Country,Email  FROM users";
+   $sql = $sql . " WHERE UserID='$userID'";
     
    $result = runQuery($connection, $sql, null);
    $rows = array();
