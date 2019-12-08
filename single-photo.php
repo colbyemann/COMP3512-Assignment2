@@ -2,6 +2,7 @@
     include("includes/header.inc.php");
     include("includes/validate.inc.php");
     include("includes/single-photo.inc.php");
+    include("includes/search.inc.php");
     getArray();
 ?>
 
@@ -35,7 +36,21 @@
             </div>
 
             <div id ="bigButons">
-                <input id="favs" type="button" value="Add to Favourites">
+                <?php
+                if(isset($_SESSION['logged_in'])) {
+                    foreach($GLOBALS['photoArray'] as $p) {
+                        if($p['ImageID'] == $_GET['ImageID']) {
+                            $path = $p['Path'];
+                        }
+                    }
+                    if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {
+                    }
+                    else {echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "'>
+                        <input id='favs' type='button' value='Add to Favourites'></a>";
+                    }
+                }
+                ?>
+                <!-- <input id="favs" type="button" value="Add to Favourites"> -->
             </div>
 
             <div id="tabBox">
@@ -47,7 +62,7 @@
             </div>
             <div id="detailBox">
             <div id="detailBoxInside">
-                <?php getExif($_GET['ImageID']);?>
+                <?php getExif($_GET['ImageID']); ?>
             </div>
                 <br>
                 <h4>Colors:</h4>
@@ -58,7 +73,7 @@
             </div>
             </div>
             <div id="mapBox">
-                <?php getmap($_GET['ImageID']);?>
+                <?php getmap($_GET['ImageID']); ?>
             </div>
             </div>
             </div>

@@ -1,8 +1,5 @@
 <?php
 
-$favouritesArray = array();
-$GLOBALS['favouritesArray'];
-
 function buildSearch()
 {
     echo "<div class='box filter'>
@@ -24,7 +21,6 @@ function populateCountryList() {
         $newCountry = true;
         
         foreach($photos as $p) {
-            
             if($p['CountryCodeISO'] == $c['ISO'] && $newCountry == true) {
                 echo "<option value='".$c['ISO']."'>". $c['CountryName'] ."</option>";
                 $newCountry = false;
@@ -43,11 +39,8 @@ function populateCityList($iso) {
     
     foreach($cities as $c) {
         $newCity = true;
-        
         foreach($photos as $p) {
-            
             if($p['CityCode'] == $c['CityCode'] && $newCity == true) {
-                
                 echo "<option value='".$c['CityCode']."'>". $c['AsciiName'] . "</option>";
                 $newCity = false;
             }
@@ -57,24 +50,17 @@ function populateCityList($iso) {
 }
 
 
-function filterTitle($search)
-{
-    
+function filterTitle($search) {
     $photos = getAllPhotos();
-    foreach($photos as $p)
-    {
-        
-        if(strpos(strtolower($p['Title']), strtolower($search)) !== false)
-        {
+    foreach($photos as $p) {
+        if(strpos(strtolower($p['Title']), strtolower($search)) !== false) {
             echo "<h1>Hello</h1>";
             outputSearchPhotos($p['Title']);
         }
     }
-
 }
 
-function outputSearchPhotos($title)
-{
+function outputSearchPhotos($title) {
     $photos = getPhotosByTitle($title);
     foreach($photos as $p) {
         outputSinglePhoto($p);
@@ -103,9 +89,9 @@ function outputPhotos() {
 }
 
 function outputSinglePhoto($photo) {
-    echo "<img src='images/square150/". $photo['Path'] . "'>";
-    //echo "<p>" . $photo['Title'] . "</p>";
-    echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
+    echo "<figure><img src='images/square150/". $photo['Path'] . "'>
+    <figcaption>" . $photo['Title'] . "</figcaption></figure>
+    <a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
     showButton($photo);
 }
 
@@ -126,14 +112,14 @@ function pushSessionArray() {
 }
 
 //https://wp-mix.com/php-search-multidimensional-array/
-function searchArray($needle, $haystack) {
+function searchArray($image, $array) {
 	
-	if (in_array($needle, $haystack)) {
+	if (in_array($image, $array)) {
 		return true;
 	}
 	
-	foreach ($haystack as $item) {
-		if (is_array($item) && array_search($needle, $item)) 
+	foreach ($array as $a) {
+		if (is_array($a) && array_search($image, $a)) 
 		return true;
     }
     
