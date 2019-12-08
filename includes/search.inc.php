@@ -1,6 +1,7 @@
 <?php
 
 
+
 function populateCountryList() {
     $countries = getAllCountries();
     $photos = getAllPhotos();
@@ -44,7 +45,6 @@ function filterTitle($search) {
     $photos = getAllPhotos();
     foreach($photos as $p) {
         if(strpos(strtolower($p['Title']), strtolower($search)) !== false) {
-            echo "<h1>Hello</h1>";
             outputSearchPhotos($p['Title']);
         }
     }
