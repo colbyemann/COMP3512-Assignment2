@@ -4,8 +4,23 @@ function buildProfilePage()
 {
     echo "
         <div class='box userinfo'>
+<<<<<<< HEAD
             <h3>User Info</h3>
         </div>
+=======
+            <h3>User Info</h3>";
+
+           $user = getUser($_SESSION['sessionUser']);
+           
+            foreach($user as $u)
+            {
+               echo "<h4>Hello, " . $u['FirstName'] . " ". $u['LastName']. "</h4>";
+               echo "<h4>" . $u['City'] . ", " . $u['Country'] . "</h4>";
+               echo "<h4>" . $u['Email'] . "</h4>";
+            }
+
+     echo   "</div>
+>>>>>>> f2a6b9ee61d40d776b597b13b935e4ce46918eee
 
         <div class='box favs'>
             <h3>Favourited Images</h3>";
