@@ -44,7 +44,7 @@ function buildProfilePage()
                         if($suggestedPhotos < 12)
                         {
                             echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $p['ImageID'] . "'><img src='images/square150/" . $p['Path'] . "'></a>";
-                            
+                        
                             $suggestedPhotos = $suggestedPhotos + 1;
                         }
                 }
