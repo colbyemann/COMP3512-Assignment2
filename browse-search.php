@@ -24,30 +24,46 @@
         ?>
         <main class="container">
             <?php 
-                buildSearch(); 
+               
                 buildPopLogin();
                 buildPopSignup();
             ?>
-            
-            <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
+
+<div class='box filter'>
+        <h3>Photo Filter</h3>
+        <br>
+        <h4>Text Search</h4>
+        <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
                 <input type='text' id='text' name='Title'><br>
                 <button class="button" type="submit"> Search Text </button>
             </form>
-            
+        <br>
+        <h4>Filter Country</h4>
             <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
                 <button class="button" type="submit"> Filter </button>   
                 <?php populateCountryList(); ?>
             </form>
+            <br>
+        <?php if(isset($_GET['ISO'])){
+            echo "<h4>Filter City</h4>";
+            echo "<form method=get action='".$_SERVER['REQUEST_URI'] . "'> ";
+            echo "<button class=button type=submit> Filter </button> ";
+            populateCityList($_GET['ISO']);
+            echo " </form>";
 
-            <?php
+        } ?>
+       
+
+    </div>
+
+    <div class='box search'>
+        <h3>Browse/Search</h3>
+        <?php
                 if($_SERVER["REQUEST_METHOD"] == "GET") {
                     if (isset($_GET['ISO'])) {
                         outputCountryPhotos($_GET['ISO']);
             ?>
-                    <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                        <button class="button" type="submit"> Filter </button>   
-                        <?php populateCityList($_GET['ISO']); ?>
-                    </form>
+                   
             <?php
                     }
                     else if (isset($_GET['CityCode'])) {
@@ -65,6 +81,12 @@
             }
             if(isset($_GET['ActualCreator'])) {addSessionElement();}
             ?>
+    </div>
+
+            
+            
+
+            
         </main>
         <script src="js/pop.js"></script>
     </body>
