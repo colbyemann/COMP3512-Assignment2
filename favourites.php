@@ -2,6 +2,7 @@
     include("includes/header.inc.php");
     include("includes/session.inc.php");
     include("includes/search.inc.php");
+    include("includes/favourites.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,7 @@
         <main class="container">            
             <div class='box'>
                 <?php
-                foreach($_SESSION['favPhoto'] as $f) {
-                    echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $f['ImageID'] . "'><img src='images/square150/" . $f['Path'] . "'></a>";
-                }
+                    buildFavouritesPage();
                 ?>
             </div>
         </main>

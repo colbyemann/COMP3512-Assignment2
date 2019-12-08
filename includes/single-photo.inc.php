@@ -113,18 +113,23 @@ function getButton() {
                 $path = $p['Path'];
                 $ac = $p['ActualCreator'];
                 $cc = $p['ContinentCode'];
+                $city = $p['CountryCodeISO'];
+                $iso = $p['CityCode'];
+                $add = true;
+                $remove = true;
             }
         }
         if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {
-            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;ContinentCode=" . $cc . "'>
-            <input id='favs' type='button' value='Remove from Favourites'></a>";
+            // echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;Remove=" . $remove . "'>
+            // <input id='favs' type='button' value='Remove from Favourites'></a>";
         }
         else {
-            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;ActualCreator=" . $ac . "'>
+            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . 
+            "&amp;Add=" . $add . "&amp;CountryCodeISO=" . $iso . "&amp;CityCode=" . $city . "'>
             <input id='favs' type='button' value='Add to Favourites'></a>";
         }
-        if(isset($_GET['ActualCreator'])) {addSessionElement();}
-        if(isset($_GET['ContinentCode'])) {removeSessionElement($_GET['ImageID'], $path);}
+        if(isset($_GET['Add'])) {addSessionElement();}
+        //if(isset($_GET['ContinentCode'])) {removeSessionElement($_GET['ImageID'], $path, $iso, $city);}
     }
 }
 ?>
