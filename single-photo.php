@@ -37,20 +37,8 @@
 
             <div id ="bigButons">
                 <?php
-                if(isset($_SESSION['logged_in'])) {
-                    foreach($GLOBALS['photoArray'] as $p) {
-                        if($p['ImageID'] == $_GET['ImageID']) {
-                            $path = $p['Path'];
-                        }
-                    }
-                    if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {
-                    }
-                    else {echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "'>
-                        <input id='favs' type='button' value='Add to Favourites'></a>";
-                    }
-                }
+                getButton();
                 ?>
-                <!-- <input id="favs" type="button" value="Add to Favourites"> -->
             </div>
 
             <div id="tabBox">

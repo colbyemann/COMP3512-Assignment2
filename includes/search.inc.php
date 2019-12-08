@@ -113,16 +113,13 @@ function pushSessionArray() {
 
 //https://wp-mix.com/php-search-multidimensional-array/
 function searchArray($image, $array) {
-	
 	if (in_array($image, $array)) {
 		return true;
 	}
-	
 	foreach ($array as $a) {
 		if (is_array($a) && array_search($image, $a)) 
 		return true;
     }
-    
 	return false;
 }
 

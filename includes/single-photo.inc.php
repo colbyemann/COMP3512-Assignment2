@@ -20,10 +20,10 @@ function getImage($code) {
         echo "</section>";
         echo "<br>";
         echo "<div id='colors2'>";
-        echo  "<section>";
-        echo    getColors($code);
-        echo  "</section>";
-        echo   "</div></div></div>";
+        echo "<section>";
+        echo getColors($code);
+        echo "</section>";
+        echo "</div></div></div>";
      
         }
     }
@@ -103,6 +103,22 @@ function getColors($code) {
                echo "<span style=background:$color;></span>";
             }
         }
+    }
+}
+
+function getButton() {
+    if(isset($_SESSION['logged_in'])) {
+        foreach($GLOBALS['photoArray'] as $p) {
+            if($p['ImageID'] == $_GET['ImageID']) {
+                $path = $p['Path'];
+            }
+        }
+        if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {
+        }
+        else {echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "'>
+            <input id='favs' type='button' value='Add to Favourites'></a>";
+        }
+        if(isset($_SESSION[$_GET['ImageID']])) {pushSessionArray();}
     }
 }
 ?>
