@@ -6,8 +6,7 @@ function buildProfilePage()
         <div class='box userinfo'>
             <h3>User Info</h3>";
 
-            $user = getUser($_SESSION['sessionUser']);
-            
+           $user = getUser($_SESSION['sessionUser']);
             foreach($user as $u)
             {
                echo "<h4>Hello, " . $u['FirstName'] . " ". $u['LastName']. "</h4>";
