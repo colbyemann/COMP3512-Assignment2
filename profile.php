@@ -11,12 +11,20 @@
         <link rel="stylesheet" type="text/css" href="css/profilelayout.css">
     </head>
     <body>
+   
         <?php 
             buildMenu();
             buildLogoutMenu();
+<<<<<<< Updated upstream
         echo "<main class='container'>";
             buildProfilePage();
         ?>
         </main>   
+=======
+            echo "<main class='container'>";
+            buildProfilePage();
+        ?>
+        </main>
+>>>>>>> Stashed changes
     </body>
 </html>

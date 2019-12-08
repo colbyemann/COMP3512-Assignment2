@@ -52,9 +52,12 @@ function filterTitle($search) {
 
 function outputSearchPhotos($title) {
     $photos = getPhotosByTitle($title);
+    
+    if(is_array($photos)){
     foreach($photos as $p) {
         outputSinglePhoto($p);
     }
+}
 }
 
 function outputCountryPhotos($iso) {
