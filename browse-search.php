@@ -63,14 +63,7 @@
             else if ($_POST['action'] = "filterTitle") {
                 filterTitle();
             }
-
-            if (isset($_GET['ImageID'])) {
-                $data = ['ImageID' => $_GET['ImageID'],'Path' => $_GET['Path']];
-                array_push($_SESSION['favPhoto'], $data);
-                //echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
-                //Dump it out for example purposes.
-                //var_dump($_SESSION['favPhoto']);
-            }
+            pushSessionArray();
             ?>
         </main>
         <script src="js/pop.js"></script>

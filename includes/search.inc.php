@@ -106,9 +106,38 @@ function outputSinglePhoto($photo) {
     echo "<img src='images/square150/". $photo['Path'] . "'>";
     //echo "<p>" . $photo['Title'] . "</p>";
     echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><button type=button action=>View</button></a>";
+    showButton($photo);
+}
+
+function showButton($photo) {
     if(isset($_SESSION['logged_in'])) {
-        echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "'><button type=button action=>Add to Favourites</button></a>";
+        if (searchArray($photo['ImageID'], $_SESSION['favPhoto'])) {
+        }
+        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "'><button type=button action=>Add to Favourites</button></a>";}
     }
+}
+
+function pushSessionArray() {
+    if (isset($_GET['ImageID'])) {
+        $data = ['ImageID' => $_GET['ImageID'],'Path' => $_GET['Path']];
+        array_push($_SESSION['favPhoto'], $data);
+        echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
+    }
+}
+
+//https://wp-mix.com/php-search-multidimensional-array/
+function searchArray($needle, $haystack) {
+	
+	if (in_array($needle, $haystack)) {
+		return true;
+	}
+	
+	foreach ($haystack as $item) {
+		if (is_array($item) && array_search($needle, $item)) 
+		return true;
+    }
+    
+	return false;
 }
 
 ?>

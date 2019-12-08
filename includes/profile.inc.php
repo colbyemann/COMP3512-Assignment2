@@ -8,7 +8,11 @@ function buildProfilePage()
         </div>
 
         <div class='box favs'>
-            <h3>Favourited Images</h3>
+            <h3>Favourited Images</h3>";
+                foreach($_SESSION['favPhoto'] as $f) {
+                    echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $f['ImageID'] . "'><img src='images/square150/" . $f['Path'] . "'></a>";
+                }
+        echo "
         </div>
 
         <div class='box search'>
