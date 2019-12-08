@@ -101,16 +101,15 @@ function showButton($photo) {
             echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;ContinentCode=" . $photo['ContinentCode'] . "'>
             <input id='favs' type='button' value='Remove from Favourites'></a>";
         }
-        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "'><input id='favs' type='button' value='Add to Favourites'></a>";}
+        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;ActualCreator=" . $photo['ActualCreator'] . "'><input id='favs' type='button' value='Add to Favourites'></a>";}
+        if(isset($_GET['ContinentCode'])) {removeSessionElement($_GET['ImageID'], $photo['Path']);}
     }
 }
 
 function addSessionElement() {
-    if (isset($_GET['ImageID'])) {
-        $data = ['ImageID' => $_GET['ImageID'],'Path' => $_GET['Path']];
-        array_push($_SESSION['favPhoto'], $data);
-        echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
-    }
+    $data = ['ImageID' => $_GET['ImageID'],'Path' => $_GET['Path']];
+    array_push($_SESSION['favPhoto'], $data);
+    echo "<script type='text/javascript'>alert('Photo added to Favourites');</script>";
 }
 
 function removeSessionElement($id, $path) {

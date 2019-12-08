@@ -63,7 +63,7 @@
             else if ($_POST['action'] = "filterTitle") {
                 filterTitle();
             }
-            addSessionElement();
+            if(isset($_GET['ActualCreator'])) {addSessionElement();}
             ?>
         </main>
         <script src="js/pop.js"></script>
