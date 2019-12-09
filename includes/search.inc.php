@@ -97,10 +97,11 @@ function outputPhotos() {
 }
 
 function outputSinglePhoto($photo) {
-    echo "<figure><img src='images/square150/". $photo['Path'] . "'>
+    echo "<div id='divider'><figure><img src='images/square150/". $photo['Path'] . "'>
     <figcaption>" . $photo['Title'] . "</figcaption></figure>
     <a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $photo['ImageID'] . "'><input id='favs' type='button' value='View'></a>";
     showButton($photo);
+    echo "</div>";
 }
 
 function showButton($photo) {
