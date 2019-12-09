@@ -42,11 +42,26 @@ function populateCityList($iso) {
 
 
 function filterTitle($search) {
+    $noImage = true;
     $photos = getAllPhotos();
+    
     foreach($photos as $p) {
         if(strpos(strtolower($p['Title']), strtolower($search)) !== false) {
+            $noImage = false;
             outputSearchPhotos($p['Title']);
         }
+        
+    }
+    
+    if ($noImage == true)
+        {
+            echo "<h3>No images found.</h3>";
+            $noImage = false;
+        }
+    
+    if (empty($search))
+    {
+        echo "<h3>No images found.</h3>";
     }
 }
 
@@ -56,7 +71,7 @@ function outputSearchPhotos($title) {
     if(is_array($photos)){
     foreach($photos as $p) {
         outputSinglePhoto($p);
-    }
+    }      
 }
 }
 
