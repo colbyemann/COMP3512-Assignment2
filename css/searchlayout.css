@@ -2,6 +2,8 @@ img{float: left; margin-right: 30px; border-radius: 25px;}
 
 #divider{height: 180px;}
 
+figcaption{color: #CFD8DC;}
+
 /*desktop layout*/
 @media screen and (min-width: 800px) {
 	.container {
