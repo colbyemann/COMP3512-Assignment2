@@ -108,13 +108,8 @@ function showButton($photo) {
     $add = true;
     $remove = true;
     if(isset($_SESSION['logged_in'])) {
-        if (searchArray($photo['ImageID'], $_SESSION['favPhoto'])) {
-            // echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;Remove=" . $remove . "&amp;CountryCodeISO=" . $photo['CountryCodeISO'] ."&amp;CityCode=" . $photo['CityCode'] ."'>
-            // <input id='favs' type='button' value='Remove from Favourites'></a>";
-        }
-        else {echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;Add=" . $add . "&amp;CountryCodeISO=" . $photo['CountryCodeISO'] ."&amp;CityCode=" . $photo['CityCode'] . "'>
-            <input id='favs' type='button' value='Add to Favourites'></a>";}
-        if(isset($_GET['Remove'])) {removeSessionElement($_GET['ImageID'], $photo['Path'], $photo['CountryCodeISO'], $photo['CityCode']);}
+        echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;Add=" . $add . "&amp;CountryCodeISO=" . $photo['CountryCodeISO'] ."&amp;CityCode=" . $photo['CityCode'] . "'>
+        <input id='favs' type='button' value='Add to Favourites'></a>";
     }
 }
 
