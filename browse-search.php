@@ -34,7 +34,7 @@
         <br>
         <h4>Text Search</h4>
         <form method="get" action="<?=$_SERVER['REQUEST_URI']?>">
-                <input type='text' id='text' name='Title'><br>
+                <input type='text' id='text' name='Title' placeholder="Search Box for Photos"><br>
                 <button class="button" type="submit"> Search Text </button>
             </form>
         <br>
