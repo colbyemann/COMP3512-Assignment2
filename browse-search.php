@@ -79,7 +79,7 @@
             else if ($_POST['action'] = "filterTitle") {
                 filterTitle();
             }
-            if(isset($_GET['ActualCreator'])) {addSessionElement();}
+            if(isset($_GET['Add'])) {addSessionElement();}
             ?>
     </div>
 
