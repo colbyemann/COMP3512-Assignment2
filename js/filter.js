@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     //change links
-    const endpoint = 'http://localhost/Assignment_2/api/api-countries.php';
-    const endpoint2 = 'http://localhost/Assignment_2/api/api-photos.php';
+    const endpoint = 'https://comp-3512-travel-app.herokuapp.com/api/api-countries.php';
+    const endpoint2 = 'https://comp-3512-travel-app.herokuapp.com/api/api-photos.php';
 
     const allData = [];
     const allPhotos = [];
