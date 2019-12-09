@@ -17,7 +17,7 @@ function buildFavouritesPage()
                 }
 
                 foreach($_SESSION['favPhoto'] as $f) {
-                    echo "<div class='buffer'><img src='images/square150/" . $f['Path'] . "'><a href='" . "?Path=" . $f['Path'] . "&amp;ImageID=" . $f['ImageID'] . "&amp;CountryCodeISO=" . 
+                    echo "<div class='buffer'><a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $f['ImageID'] . "'><img src='images/square150/" . $f['Path'] . "'></a><a href='" . "?Path=" . $f['Path'] . "&amp;ImageID=" . $f['ImageID'] . "&amp;CountryCodeISO=" . 
                     $f['CountryCodeISO'] . "&amp;CityCode=" . $f['CityCode'] . "&amp;Remove=" . $remove . "'><input id='favs' type='button' value='Remove from Favourites'></a></div>";
                 }
 
