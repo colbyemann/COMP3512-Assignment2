@@ -1,13 +1,13 @@
 <?php
 
 //global links APIs
-$GLOBALS['apiCountries'] = "http://localhost/Assignment_2/api/api-countries.php";
-$GLOBALS['apiCities'] = "http://localhost/Assignment_2/api/api-cities.php";
-$GLOBALS['apiPhotos'] = "http://localhost/Assignment_2/api/api-photos.php";
+$GLOBALS['apiCountries'] = "https://comp-3512-travel-app.herokuapp.com/api/api-countries.php";
+$GLOBALS['apiCities'] = "https://comp-3512-travel-app.herokuapp.com/api/api-cities.php";
+$GLOBALS['apiPhotos'] = "https://comp-3512-travel-app.herokuapp.com/api/api-photos.php";
 //global links to "Single" Pages
-$GLOBALS['singleCountryPage'] = "http://localhost/Assignment_2/single-country.php";
-$GLOBALS['singlePhotoPage'] = "http://localhost/Assignment_2/single-photo.php";
-$GLOBALS['singleCityPage'] = "http://localhost/Assignment_2/single-city.php";
+$GLOBALS['singleCountryPage'] = "https://comp-3512-travel-app.herokuapp.com/single-country.php";
+$GLOBALS['singlePhotoPage'] = "https://comp-3512-travel-app.herokuapp.com/single-photo.php";
+$GLOBALS['singleCityPage'] = "https://comp-3512-travel-app.herokuapp.com/single-city.php";
 
 function getAllCountries() {
     $data = file_get_contents($GLOBALS['apiCountries']);
