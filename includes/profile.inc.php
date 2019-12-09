@@ -30,6 +30,7 @@ function buildProfilePage()
 
         <form method='get' action='browse-search.php?'>  
         <div class='box search'>
+            <h3>Search Images</h3>
             <input type=text id=text name=Title placeholder='Search Box for Photos'>
             <button class='button' type='submit'> Search Text </button>
         </div>
