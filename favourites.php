@@ -9,6 +9,7 @@
 <html lang="en">
         <?php buildHead(); ?>
         <title>Favourites</title>
+        <link rel="stylesheet" type="text/css" href="css/favourites.css">
     </head>
     <body>
         <?php 

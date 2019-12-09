@@ -106,10 +106,13 @@ function outputSinglePhoto($photo) {
 
 function showButton($photo) {
     $add = true;
-    $remove = true;
+    $filter = true;
     if(isset($_SESSION['logged_in'])) {
-        echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;Add=" . $add . "&amp;CountryCodeISO=" . $photo['CountryCodeISO'] ."&amp;CityCode=" . $photo['CityCode'] . "'>
-        <input id='favs' type='button' value='Add to Favourites'></a>";
+        if (searchArray($photo['ImageID'], $_SESSION['favPhoto'])) {}
+        else {
+            echo "<a href='" . "?Path=" . $photo['Path'] . "&amp;ImageID=" . $photo['ImageID'] . "&amp;Add=" . $add . "'>
+            <input id='favs' type='button' value='Add to Favourites'></a>";
+        }
     }
 }
 

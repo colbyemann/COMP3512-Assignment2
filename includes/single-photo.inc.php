@@ -108,17 +108,21 @@ function getColors($code) {
 
 function getButton() {
     if(isset($_SESSION['logged_in'])) {
+        $add = true;
         foreach($GLOBALS['photoArray'] as $p) {
             if($p['ImageID'] == $_GET['ImageID']) {
                 $path = $p['Path'];
-                $city = $p['CountryCodeISO'];
-                $iso = $p['CityCode'];
-                $add = true;
+                $city = $p['CityCode'];
+                $iso = $p['CountryCodeISO'];
+                $title = $p['Title'];
             }
         }
-        echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . 
-        "&amp;Add=" . $add . "&amp;CountryCodeISO=" . $iso . "&amp;CityCode=" . $city . "'>
-        <input id='favs' type='button' value='Add to Favourites'></a>";
+        if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {}
+        else {
+            echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;CountryCodeISO=" . $iso . 
+            "&amp;CityCode=" . $city . "&amp;Title=" . $title . "&amp;Add=" . $add . "'>
+            <input id='favs' type='button' value='Add to Favourites'></a>";
+        }
 
         if(isset($_GET['Add'])) {addSessionElement();}
     }
