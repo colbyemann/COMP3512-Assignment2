@@ -258,3 +258,5 @@ button{ box-shadow: inset 0px 1px 3px 0px var(--accent-color);
 	text-shadow: 0px -1px 0px var(--default-primary-color);}
 	
 select {height: 40px;}
+
+img {border-radius: 25px;}
