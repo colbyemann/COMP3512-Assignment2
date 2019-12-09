@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function makeList(iso, name) {
         let a = document.createElement("a");
-        //change links
-        a.href = "http://localhost/Assignment_2/single-country.php?ISO=" + iso;
+        
+        a.href = "https://comp-3512-travel-app.herokuapp.com/single-country.php?ISO=" + iso;
 
         let li = document.createElement("li");
         li.appendChild(document.createTextNode(name));
