@@ -83,7 +83,7 @@
                 buildPopSignup();
             ?>
         </main>
-        <script src="js/storage.js"></script>
+        
         <script src="js/pop.js"></script>
         <script src="js/filter.js"></script>
         
