@@ -18,8 +18,8 @@ else if(isset($_GET['CityCode']))
 }
 else if (isset($_GET['Title']))
 {
-    $received = preg_replace("/[^a-zA-Z]/", "", $_GET['Title']);
-    $result = getPhotosByTitle($connection, $received);
+    
+    $result = getPhotosByTitle($connection, $_GET['Title']);
     echo $result;
 }
 else if (isset($_GET['Email']))
