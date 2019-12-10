@@ -15,7 +15,7 @@
         $result = $sql->fetch(PDO::FETCH_ASSOC);
     
         if (!$result) {
-            echo '<p class="error">Email or password is wrong!</p>';
+            echo '<p class="popup error">Email or password is wrong!</p>';
         } else {
             if (password_verify($password, $result['Password'])) {
                 $_SESSION['logged_in'] = true;
@@ -47,6 +47,7 @@
                 echo '<p class="popup error">That email address is already registered!</p>';
             }
 
+            // Encypt password
             $digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
             if($_POST["password"] === $_POST["confirm"]) {
@@ -64,6 +65,7 @@
                     $sql->bindValue("digest", $digest, PDO::PARAM_STR);
                     $result = $sql->execute();
             
+                    // Create session variables
                     if ($result) {
                         $_SESSION['logged_in'] = true;
                         $_SESSION['sessionUser'] = 'UserID';
