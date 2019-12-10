@@ -25,11 +25,19 @@
 }
 
 #login {
-    width: 13em;
+    width: 34%;
     opacity: 1.0 !important;
     font-size: 25px;
     margin-left: 10%;
     margin-right: 2%;
+}
+
+#join {
+    width: 34%;
+    opacity: 1.0 !important;
+    font-size: 25px;
+    margin-right: 10%;
+    margin-left: 2%;
 }
 
 
@@ -67,14 +75,6 @@ button:hover {
 
 input:focus {
   background-color: #f2f0eb;
-}
-
-#join {
-    width: 13em;
-    opacity: 1.0 !important;
-    font-size: 25px;
-    margin-right: 10%;
-    margin-left: 2%;
 }
 
 
