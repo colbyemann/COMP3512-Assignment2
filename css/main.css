@@ -241,7 +241,7 @@ input[type="button"] {
 
 div.show {display: none;}
 
-.buffer {padding: 1%}
+.buffer {padding: 1%; margin-left: 35px;}
 
 button{ box-shadow: inset 0px 1px 3px 0px var(--accent-color);
     background: linear-gradient(to bottom, var(--dark-primary-color) 5%, var(--default-primary-color) 100%);
