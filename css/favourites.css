@@ -1,5 +1,5 @@
 img{float: left; margin-right: 30px; border-radius: 25px;}
 
-#divider{height: 220px;}
+#divider{height: 220px !important; }
 
 figcaption{color: #CFD8DC;}
