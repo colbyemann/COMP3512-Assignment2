@@ -68,7 +68,7 @@
                     // Create session variables
                     if ($result) {
                         $_SESSION['logged_in'] = true;
-                        $_SESSION['sessionUser'] = 'UserID';
+                        $_SESSION['sessionUser'] = $username;
                         $_SESSION['favPhoto'] = array();
                         header('Location: profile.php');
                     } else {
