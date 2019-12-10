@@ -1,7 +1,8 @@
 <?php
-
+//Creates all boxes on profile page
 function buildProfilePage()
 {
+    //Creates user info box by pulling user data from API
     echo "
         <div class='box userinfo'>
         
@@ -17,17 +18,15 @@ function buildProfilePage()
                echo "<h4>" . $u['Email'] . "</h4>";
             }
 
+    //creates favourites box by pulling all images from saved session array
      echo   "</div>
-
-
         <div class='box favs'>
             <h3>Favourited Images</h3>";
                 foreach($_SESSION['favPhoto'] as $f) {
                     echo "<a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=". $f['ImageID'] . "'><img src='images/square150/" . $f['Path'] . "'></a>";
                 }
-        echo "
-        </div>
-
+        //creates search box that sends to browse-search.php page
+        echo "</div>
         <form method='get' action='browse-search.php?'>  
         <div class='box search'>
             <h3>Search Images</h3>
@@ -35,10 +34,10 @@ function buildProfilePage()
             <button class='button' type='submit'> Search Text </button>
         </div>
         </form>
-
+        
         <div class='box like'>
             <h3>Images You May Like</h3>";
-    
+            //Reccomndation function that checks if photo favourited as recommends based on Country or City and fills at random if less than 12
             $photos = getAllPhotos();
             $suggestedPhotos = 0;
             

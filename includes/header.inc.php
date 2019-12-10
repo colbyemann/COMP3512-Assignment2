@@ -3,6 +3,8 @@
     require_once("db-functions.inc.php");
 	require_once('db-helper.inc.php');
 
+
+//builder header info to place on all pages and keep conisitance
 function buildHead()
 {
 	echo "<head>
@@ -19,6 +21,7 @@ function buildHead()
 		";
 }
 
+//creates menu to place on all pages consistantly
 function buildMenu()
 {
 	echo "<header class=header>
@@ -36,6 +39,7 @@ function buildMenu()
 		";
 }
 
+//Changes menu options via session state, to either logged in or logged out
 function buildLogoutMenu()
 {
 	echo "	<li><a href='favourites.php'>Favs</a></li>
