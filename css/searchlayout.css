@@ -1,8 +1,23 @@
 img{float: left; margin-right: 30px; border-radius: 25px;}
 
-#divider{height: 180px;}
+#divider{
+    
+height: 210px;
+background-color: #455A64;
+border-radius: 0.7em;
+border: solid 0.1em;
+border-color: #CFD8DC;
+margin-bottom: 1%;
+margin-right: 0.5%;
+width: 48%;
+float: left;
+
+    
+
+}
 
 figcaption{color: #CFD8DC;}
+
 
 /*desktop layout*/
 @media screen and (min-width: 800px) {
