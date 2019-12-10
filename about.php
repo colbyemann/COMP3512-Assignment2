@@ -31,7 +31,20 @@
                 <a href="https://github.com/bstuike" target="_blank">Byron Stuike</a>, &
                 <a href="https://github.com/jwola586" target="_blank">Jakub Wolak</a></p>
                 <a href="https://github.com/colbyemann/COMP3512-Assignment2" target="_blank">Assignment Repository</a>
+                
             </div>
+            <section class='box'>            
+                <h2>Acknowledgements</h2>
+                <h3>W3 Schools</h3>
+                    <ul><a herf="https://www.w3schools.com/php/php_form_validation.asp"><li>Form Validation</li></a></ul>
+                <h3>PHP.net</h3>
+                    <ul>
+                        <a herf="https://www.php.net/manual/en/function.preg-replace.php"><li>preg_replace</li></a>
+                        <a herf="https://www.php.net/manual/en/function.uasort.php"><li>uasort</li></a>
+                    </ul>
+                <h3>WP-Mix</h3>
+                    <ul><a herf="https://wp-mix.com/php-search-multidimensional-array/"><li>Search Multi-Dimensional Array</li></a></ul>
+            </section>
             <?php 
                 buildPopLogin();
                 buildPopSignup();
