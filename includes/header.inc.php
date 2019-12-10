@@ -27,7 +27,7 @@ function buildMenu()
 	echo "<header class=header>
 		<!-- Image retrieved from www.freeiconspng.com/downloadimg/2517 -->
 		<img class=logo src='images/icons/airplane.png' alt='Airplane' style='width:40px;height:40px;'>
-		<a href='#' class='logo'>Assignment 2</a>
+		<h1 class='logo'>Assignment 2</h1>
 		<input class='menu-btn' type='checkbox' id='menu-btn'/>
 		<label class='menu-icon' for='menu-btn'><span class='navicon'></span></label>
 		<ul class='menu'>
