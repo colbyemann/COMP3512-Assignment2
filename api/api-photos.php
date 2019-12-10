@@ -17,12 +17,14 @@ else if(isset($_GET['CityCode']))
 }
 else if (isset($_GET['Title']))
 {
-    $result = getPhotosByTitle($connection, $_GET['Title']);
+    $received = preg_replace("/[^a-zA-Z]/", "", $_GET['Title']);
+    $result = getPhotosByTitle($connection, $received);
     echo $result;
 }
 else if (isset($_GET['Email']))
 {
-    $result = getUser($connection, $_GET['Email']);
+    $username = filter_var($_GET['Email'], FILTER_SANITIZE_EMAIL);
+    $result = getUser($connection, $username);
     echo $result;
 }
 else {
