@@ -1,5 +1,6 @@
 <?php
 
+// Retrieves and displays any favourite photos set
 function buildFavouritesPage()
 {
     $remove = true;

@@ -96,6 +96,7 @@
         return $received;
     }
 
+    // Builds the login menu
     function buildPopLogin() {
         echo "<div class='popup' id='login-box'>
             <form method='post' action='' class='form-box'>
@@ -113,6 +114,7 @@
         </div>";
     }
 
+    // Builds the signup menu
     function buildPopSignup() {
         echo "<div class='popup' id='signup-box'>
             <form method='post' action='' class='form-box'>

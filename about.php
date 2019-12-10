@@ -36,15 +36,18 @@
             <section class='box'>            
                 <h2>Acknowledgements</h2>
                 <h3>W3 Schools</h3>
-                    <ul><a herf="https://www.w3schools.com/php/php_form_validation.asp"><li>Form Validation</li></a></ul>
+                    <ul><a href="https://www.w3schools.com/php/php_form_validation.asp" target="_blank"><li>Form Validation</li></a></ul>
                 <h3>PHP.net</h3>
                     <ul>
-                        <a herf="https://www.php.net/manual/en/function.preg-replace.php"><li>preg_replace</li></a>
-                        <a herf="https://www.php.net/manual/en/function.uasort.php"><li>uasort</li></a>
+                        <a href="https://www.php.net/manual/en/function.preg-replace.php" target="_blank"><li>preg_replace</li></a>
+                        <a href="https://www.php.net/manual/en/function.uasort.php" target="_blank"><li>uasort</li></a>
                     </ul>
                 <h3>WP-Mix</h3>
-                    <ul><a herf="https://wp-mix.com/php-search-multidimensional-array/"><li>Search Multi-Dimensional Array</li></a></ul>
-            </section>
+                    <ul><a href="https://wp-mix.com/php-search-multidimensional-array/" target="_blank"><li>Search Multi-Dimensional Array</li></a></ul>
+                <h3>Hero Image</h3>
+                    <ul><a href="https://www.pexels.com/photo/photo-of-curve-road-near-grass-and-trees-3026093/" target="_blank">
+                    <li><em>Curve Road Near Grass and Trees</em></a> by <a href="https://www.pexels.com/@rickyrecap" target="_blank">Ricardo Esquivel</li></a></ul>
+                </section>
             <?php 
                 buildPopLogin();
                 buildPopSignup();
