@@ -9,6 +9,7 @@
 
 /* Basic attributes for the popup box */
 .form-box {
+  max-height: 500px;
   max-width: 300px;
   padding: 10px;
   overflow-y: auto;
