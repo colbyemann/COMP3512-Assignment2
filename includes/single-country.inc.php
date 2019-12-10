@@ -1,5 +1,6 @@
 <?php
 
+//get all info from Countries ISO API JSON and post to INFO box
 function getInfo($iso) {
 
     $country = getCountriesByISO($iso);
@@ -39,6 +40,7 @@ function getInfo($iso) {
         echo "</section>";
 }
 
+//converts Languages Code to Language Name String by comparing to Language name from database
 function getLang($code) {
     $extract =  explode("," , $code);
     $rows = array();
@@ -61,6 +63,7 @@ function getLang($code) {
     return $rows;
 }
 
+//Converts Neighbours Code to Neighbour Name by comaping to CountryName from database
 function getNeighbours($code) {
     $extract =  explode("," , $code);
     $rows = array();
@@ -83,6 +86,7 @@ function getNeighbours($code) {
     return $rows;
 }
 
+//if parameter for info empty, skip posting that line ex: if no Population, skip over posting empty line
 function parameterCheck($parameter, $title) {
     if(!empty($parameter))
     {
@@ -90,6 +94,7 @@ function parameterCheck($parameter, $title) {
     }
 }
 
+//Get Cities For speficied country otherwise post no cities message
 function getCities($iso) {
     $city = getCitiesByISO($iso);
 
@@ -114,6 +119,7 @@ function getCities($iso) {
     }
 }
 
+//Post photos for country, if they have images
 function getPhotos($iso) {
   
     $photos = getPhotosByISO($iso);

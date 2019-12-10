@@ -1,12 +1,14 @@
 <?php
-
+//Global array of photos
 $photoArray = null;
 
+//add all photos to global array
 function getArray() {
     $photos = getAllPhotos();
     $GLOBALS['photoArray'] = $photos;
 }
 
+//add hover information to hidden box
 function getImage($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -29,6 +31,7 @@ function getImage($code) {
     }
 }
 
+//pull info from photo array and diplay information
 function getInfo($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -40,6 +43,7 @@ function getInfo($code) {
     }
 }
 
+//get description and post to details tab
 function getDesc($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -49,6 +53,7 @@ function getDesc($code) {
     }
 }
 
+//get exif info from photos array and post to details tab
 function getExif($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -64,6 +69,7 @@ function getExif($code) {
     }
 }
 
+//get location of country and city to use in map creation
 function getLocation($iso, $code) {
     $cities = getCitiesByCityCode($code);
     $country = getCountriesByISO($iso);
@@ -81,6 +87,7 @@ function getLocation($iso, $code) {
     }
 }
 
+//using get location function post map to map tab
 function getMap($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -95,6 +102,7 @@ function getMap($code) {
     }
 }
 
+//get stack of colors used on detials tab and hover box
 function getColors($code) {
     foreach($GLOBALS['photoArray'] as $p) {
         if($p['ImageID'] == $code) {
@@ -106,6 +114,7 @@ function getColors($code) {
     }
 }
 
+//searchs to see if photo is favourited, if it is do not show favourite button
 function getButton() {
     if(isset($_SESSION['logged_in'])) {
         $add = true;
