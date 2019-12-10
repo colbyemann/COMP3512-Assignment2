@@ -4,7 +4,7 @@ require_once('../includes/db-functions.inc.php');
 
 $connection = setConnectionInfo(DBCONNSTRING,DBUSER,DBPASS);
 
-
+//If parameters ISO are present pull results from database with WHERE, otherwise reterive all Countries
 if(isset($_GET['ISO'])) {
    $received = preg_replace("/[^a-zA-Z]/", "", $_GET['ISO']);
    $result = getCountriesByISO($connection, $received);
@@ -15,12 +15,13 @@ else {
    echo $result;
 };
 
+//sql Select statement for reteriving all nessecary data from countries table in the database
 function getCountriesSQL() {
-   //change this to countires
    $sql = "SELECT ISO, CountryName, Capital, CityCode, Area, Population, Continent, TopLevelDomain, CurrencyName, Languages, Neighbours, CountryDescription FROM countries";
    return $sql;
 }
 
+//fetch json of all countries from database
 function getAllCountries($connection) {
    $sql = getCountriesSQL();
    $rows = array();
@@ -37,12 +38,13 @@ function getAllCountries($connection) {
    }   
 }
 
+//fetch all countries WHERE ISO = ISO to json from database
 function getCountriesByISO($connection, $iso) {
    $sql = getCountriesSQL();
    $sql = $sql . " WHERE ISO='$iso'";
     
    $result = runQuery($connection, $sql, null);
-   // Covert to JSON
+   // Convert to JSON
 
    $rows = array();
       
