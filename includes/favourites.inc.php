@@ -28,10 +28,9 @@ function buildFavouritesPage()
 
                 // Searches the Favourites array and displays the contents as images and a remove button
                 foreach($_SESSION['favPhoto'] as $f) {
-                    echo "<div class='divider'><a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $f['ImageID'] . "'><figure><img src='images/square150/" . $f['Path'] . "'>
-                    <figcaption>" . $f['Title'] . "</figcaption></figure></a><a href='" . "?Path=" . $f['Path'] . "&amp;ImageID=" . $f['ImageID'] . "&amp;CountryCodeISO=" . 
-                    $f['CountryCodeISO'] . "&amp;CityCode=" . $f['CityCode'] . "&amp;Index=" . $index . "&amp;Remove=" . $remove . "'>
-                    <input id='favs' type='button' value='Remove from Favourites'></a></div>";
+                    echo "<div class='divider'><a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $f['ImageID'] . "'><img src='images/square150/" . $f['Path'] . "'></a>
+                    <a href='" . "?Path=" . $f['Path'] . "&amp;ImageID=" . $f['ImageID'] . "&amp;Index=" . $index . "&amp;Remove=" . $remove . "&amp;CountryCodeISO=" . 
+                    $f['CountryCodeISO'] . "&amp;CityCode=" . $f['CityCode'] . "'><input id='favs' type='button' value='Remove from Favourites'></a></div>";
                     $index++;
                 }
 
