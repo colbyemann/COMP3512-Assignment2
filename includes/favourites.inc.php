@@ -5,6 +5,7 @@ function buildFavouritesPage()
 {
     $remove = true;
     $removeAll = true;
+    $index = 0;
     $size = sizeof($_SESSION['favPhoto'], 0);
 
     echo "
@@ -29,10 +30,12 @@ function buildFavouritesPage()
                 foreach($_SESSION['favPhoto'] as $f) {
                     echo "<div class='divider'><a href='" . $GLOBALS['singlePhotoPage'] . "?ImageID=" . $f['ImageID'] . "'><figure><img src='images/square150/" . $f['Path'] . "'>
                     <figcaption>" . $f['Title'] . "</figcaption></figure></a><a href='" . "?Path=" . $f['Path'] . "&amp;ImageID=" . $f['ImageID'] . "&amp;CountryCodeISO=" . 
-                    $f['CountryCodeISO'] . "&amp;CityCode=" . $f['CityCode'] . "&amp;Remove=" . $remove . "'><input id='favs' type='button' value='Remove from Favourites'></a></div>";
+                    $f['CountryCodeISO'] . "&amp;CityCode=" . $f['CityCode'] . "&amp;Index=" . $index . "&amp;Remove=" . $remove . "'>
+                    <input id='favs' type='button' value='Remove from Favourites'></a></div>";
+                    $index++;
                 }
 
-                if(isset($_GET['Remove'])) {removeSessionElement($f['ImageID'], $f['Path'], $f['CountryCodeISO'], $f['CityCode']);}
+                if(isset($_GET['Remove'])) {unset($_SESSION['favPhoto'][$_GET['Index']]);}
         echo "
         </div>";
 }
