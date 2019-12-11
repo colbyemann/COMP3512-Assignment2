@@ -129,7 +129,7 @@ function getButton() {
         if (searchArray($_GET['ImageID'], $_SESSION['favPhoto'])) {}
         else {
             echo "<a href='" . "?Path=" . $path . "&amp;ImageID=" . $_GET['ImageID'] . "&amp;CountryCodeISO=" . $iso . 
-            "&amp;CityCode=" . $city . "&amp;Title=" . $title . "&amp;Add=" . $add . "'>
+            "&amp;CityCode=" . $city . "&amp;Add=" . $add . "&amp;Title=" . $title . "'>
             <input id='favs' type='button' value='Add to Favourites'></a>";
         }
 
