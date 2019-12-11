@@ -8,7 +8,8 @@ border: solid 0.1em;
 border-color: #CFD8DC;
 margin-bottom: 1%;
 margin-right: 0.5%;
-width: 100%;
+width: 44%;
+float: left;
 }
 
 figcaption{color: #CFD8DC;}
