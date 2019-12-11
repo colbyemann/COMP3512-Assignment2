@@ -35,7 +35,10 @@ function buildFavouritesPage()
                     $index++;
                 }
 
-                if(isset($_GET['Remove'])) {unset($_SESSION['favPhoto'][$_GET['Index']]);}
+                if(isset($_GET['Remove'])) {
+                    unset($_SESSION['favPhoto'][$_GET['Index']]);
+                    echo "<script type='text/javascript'>alert('Photo removed from Favourites');</script>";
+                }
         echo "
         </div>";
 }
